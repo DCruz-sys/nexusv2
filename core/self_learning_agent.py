@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
@@ -86,6 +87,8 @@ class SelfLearningAgent(ABC):
 
     async def learn_and_execute(self, task: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         similar = await self._retrieve_similar_experiences(task)
+        target_profile = self._derive_target_profile(task)
+        strategy_templates = await self._retrieve_strategy_templates(task, target_profile)
 
         self.current_experience = Experience(
             agent_name=self.name,
@@ -94,6 +97,7 @@ class SelfLearningAgent(ABC):
             strategy={
                 "exploration_rate": self.strategy_params["exploration_rate"],
                 "retrieved_experiences": len(similar),
+                "retrieved_templates": len(strategy_templates),
                 "approach": "experience_based" if similar else "exploratory",
             },
             actions=[],
@@ -102,12 +106,13 @@ class SelfLearningAgent(ABC):
             reward=0.0,
         )
 
-        result = await self._react_loop(task, similar, context or {})
+        result = await self._react_loop(task, similar, strategy_templates, context or {})
 
         self.current_experience.reward = self._calculate_reward(result)
         self.current_experience.outcome = LearningSignal.SUCCESS if result.get("success") else LearningSignal.FAILURE
 
         await self._store_experience()
+        await self._distill_and_store_strategy_templates(task, target_profile)
         self._update_strategy_from_experience()
         return result
 
@@ -115,12 +120,14 @@ class SelfLearningAgent(ABC):
         self,
         task: Dict[str, Any],
         similar_experiences: List[Experience],
+        strategy_templates: List[Dict[str, Any]],
         context: Dict[str, Any],
     ) -> Dict[str, Any]:
         iterations = 0
         accumulated_context: Dict[str, Any] = {
             "task": task,
             "similar_experiences": [e.to_dict() for e in similar_experiences],
+            "strategy_templates": strategy_templates,
             "history": [],
             "findings": [],
             **context,
@@ -266,6 +273,120 @@ Return JSON with analysis, improved_strategy, alternative_tools.
                 await self.memory.store_episodic(self.current_experience)
 
         self.experience_buffer.append(self.current_experience)
+
+    async def _retrieve_strategy_templates(self, task: Dict[str, Any], target_profile: str) -> List[Dict[str, Any]]:
+        if not hasattr(self.memory, "query_procedural_memory"):
+            return []
+        try:
+            rows = await self.memory.query_procedural_memory(
+                agent_type=self.name,
+                target_profile=target_profile,
+                task_type=task.get("type", "unknown"),
+                limit=3,
+            )
+        except Exception as exc:
+            logger.warning(f"[{self.name}] could not retrieve procedural memory templates: {exc}")
+            return []
+
+        templates: List[Dict[str, Any]] = []
+        for row in rows:
+            template = row.get("strategy_template")
+            if isinstance(template, str):
+                try:
+                    template = json.loads(template)
+                except Exception:
+                    template = {"raw": template}
+            if isinstance(template, dict):
+                template.setdefault("strategy_hash", row.get("strategy_hash"))
+                template.setdefault("avg_reward", row.get("avg_reward"))
+                template.setdefault("version", row.get("version"))
+                templates.append(template)
+        return templates
+
+    async def _distill_and_store_strategy_templates(self, task: Dict[str, Any], target_profile: str) -> None:
+        if not self.current_experience or not hasattr(self.memory, "store_procedural_memory"):
+            return
+
+        candidates = [
+            e
+            for e in self.experience_buffer[-25:]
+            if e.task_type == self.current_experience.task_type and e.reward > 0 and e.actions
+        ]
+        if self.current_experience.reward > 0 and self.current_experience.actions and self.current_experience not in candidates:
+            candidates.append(self.current_experience)
+        if not candidates:
+            return
+
+        candidates.sort(key=lambda exp: exp.reward, reverse=True)
+        top_candidates = candidates[:3]
+
+        context_features = {
+            "task_type": task.get("type", "unknown"),
+            "target_profile": target_profile,
+            "task_keywords": self._extract_task_keywords(task.get("description", "")),
+        }
+
+        for exp in top_candidates:
+            sequence = self._build_action_sequence_template(exp.actions)
+            template = {
+                "name": f"{self.name}_{exp.task_type}_template",
+                "task_type": exp.task_type,
+                "summary": f"High-reward sequence for {exp.task_type}",
+                "steps": sequence,
+                "reward": exp.reward,
+                "source": "self_distilled",
+            }
+            strategy_id = await self.memory.store_procedural_memory(
+                agent_type=self.name,
+                target_profile=target_profile,
+                task_type=exp.task_type,
+                strategy_template=template,
+                context_features=context_features,
+            )
+
+            if hasattr(self.memory, "record_strategy_outcome"):
+                strategy_hash = hashlib.sha256(json.dumps(template, sort_keys=True).encode()).hexdigest()
+                await self.memory.record_strategy_outcome(
+                    strategy_id=strategy_id,
+                    strategy_hash=strategy_hash,
+                    target_profile=target_profile,
+                    task_type=exp.task_type,
+                    reward=exp.reward,
+                    outcome="success" if exp.outcome == LearningSignal.SUCCESS else "failure",
+                    action_sequence=sequence,
+                    context_features=context_features,
+                )
+
+        if hasattr(self.memory, "prune_procedural_memory"):
+            await self.memory.prune_procedural_memory()
+
+    @staticmethod
+    def _build_action_sequence_template(actions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        sequence: List[Dict[str, Any]] = []
+        for idx, action in enumerate(actions):
+            sequence.append(
+                {
+                    "step": idx + 1,
+                    "action": action.get("action") or action.get("tool") or "unknown",
+                    "goal": action.get("goal", ""),
+                    "params": action.get("params", {}),
+                }
+            )
+        return sequence
+
+    @staticmethod
+    def _extract_task_keywords(description: str) -> List[str]:
+        tokens = [token.strip(" ,.:;!?\n\t").lower() for token in description.split()]
+        return [token for token in tokens if token and len(token) > 3][:8]
+
+    @staticmethod
+    def _derive_target_profile(task: Dict[str, Any]) -> str:
+        if task.get("target_profile"):
+            return str(task["target_profile"])
+        target = str(task.get("target", "unknown")).strip()
+        if ":" in target:
+            return target.split(":", 1)[0]
+        return target
 
     def _update_strategy_from_experience(self) -> None:
         if not self.current_experience:

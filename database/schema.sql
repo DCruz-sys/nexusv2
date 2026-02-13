@@ -48,3 +48,43 @@ CREATE TABLE IF NOT EXISTS pentest_sessions (
 );
 CREATE INDEX IF NOT EXISTS idx_session_status ON pentest_sessions (status);
 CREATE INDEX IF NOT EXISTS idx_session_started ON pentest_sessions (started_at DESC);
+
+CREATE TABLE IF NOT EXISTS procedural_memory (
+    id SERIAL PRIMARY KEY,
+    agent_type VARCHAR(100) NOT NULL,
+    target_profile VARCHAR(255) NOT NULL,
+    task_type VARCHAR(100) NOT NULL,
+    strategy_hash VARCHAR(64) NOT NULL,
+    strategy_template JSONB NOT NULL,
+    context_features JSONB,
+    version INTEGER NOT NULL DEFAULT 1,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    usage_count INTEGER NOT NULL DEFAULT 0,
+    success_count INTEGER NOT NULL DEFAULT 0,
+    failure_count INTEGER NOT NULL DEFAULT 0,
+    reward_sum DOUBLE PRECISION NOT NULL DEFAULT 0,
+    avg_reward DOUBLE PRECISION NOT NULL DEFAULT 0,
+    last_reward DOUBLE PRECISION,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    last_used_at TIMESTAMP
+);
+CREATE UNIQUE INDEX IF NOT EXISTS uq_procedural_strategy_version
+    ON procedural_memory (agent_type, target_profile, task_type, strategy_hash, version);
+CREATE INDEX IF NOT EXISTS idx_procedural_lookup
+    ON procedural_memory (agent_type, target_profile, task_type, is_active, avg_reward DESC, updated_at DESC);
+
+CREATE TABLE IF NOT EXISTS strategy_outcomes (
+    id SERIAL PRIMARY KEY,
+    procedural_memory_id INTEGER NOT NULL REFERENCES procedural_memory(id) ON DELETE CASCADE,
+    strategy_hash VARCHAR(64) NOT NULL,
+    target_profile VARCHAR(255) NOT NULL,
+    task_type VARCHAR(100) NOT NULL,
+    context_features JSONB,
+    reward DOUBLE PRECISION NOT NULL,
+    outcome VARCHAR(32) NOT NULL,
+    action_sequence JSONB,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS idx_strategy_outcome_lookup
+    ON strategy_outcomes (strategy_hash, task_type, target_profile, created_at DESC);
