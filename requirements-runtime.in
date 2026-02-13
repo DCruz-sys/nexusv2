@@ -21,8 +21,6 @@ PyYAML
 litellm
 openai
 anthropic
-psycopg2-binary
-pgvector
 redis
 sqlalchemy
 pydantic-settings
@@ -33,4 +31,3 @@ langfuse
 cryptography
 docker
 paramiko
-asyncpg

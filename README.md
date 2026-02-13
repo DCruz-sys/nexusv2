@@ -7,9 +7,16 @@
 - Tool execution is registry-driven via `tools/registry.py` + `tools/command_tool.py`; high-value wrappers remain handwritten.
 
 ## Startup
-1. Install runtime deps: `pip install -r requirements.docker.txt`
-2. Start API: `uvicorn app.main:app --host 0.0.0.0 --port 8000`
-3. Health check: `curl http://127.0.0.1:8000/api/health`
+1. Create and activate a virtual environment (recommended on Kali due to PEP 668):
+   - `python -m venv .venv && source .venv/bin/activate`
+2. Install core runtime deps: `pip install -r requirements.docker.txt`
+3. (Optional) Install PostgreSQL/vector memory deps: `pip install -r requirements-postgres.txt`
+4. Start API: `uvicorn app.main:app --host 0.0.0.0 --port 8000`
+5. Health check: `curl http://127.0.0.1:8000/api/health`
+
+### Kali note (PEP 668)
+- If you see `externally-managed-environment`, use a virtualenv rather than system Python installs.
+- For optional Postgres extras that compile native extensions, ensure build headers/tools are installed (`libpq-dev`, `python3-dev`, and `build-essential`) when needed.
 
 ## Supported Kali tools
 - High-value native wrappers: `nmap`, `nuclei`, `ffuf`, `sqlmap`, `amass`, `subfinder`, `httpx`.
@@ -18,5 +25,6 @@
 
 ## Tool onboarding
 1. Add/update metadata in `kali_tools_dump.json` (or `app/frameworks/kali_tools.py` source catalog).
-2. Ensure fields exist: name, category, risk/risk_level, command_template, parser_type, scope_policy.
-3. Use `tools/factory.py:get_tool_wrapper()` to resolve either high-value wrappers or generic executor.
+2. Ensure fields exist: `name`, `category`, `risk`/`risk_level`, `command_template`, `parser_type`, `scope_policy`.
+3. `tools/registry.py` merges both sources into one normalized registry, and `tools/factory.py` resolves wrappers for every registry tool.
+4. Run `pytest -q tests/test_tool_factory_wrappers.py` to verify high-value/native wrappers and full registry wrapper coverage.
