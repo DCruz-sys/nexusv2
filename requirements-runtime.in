@@ -1,0 +1,36 @@
+# Core runtime dependencies for API + orchestrator
+fastapi
+uvicorn[standard]
+websockets
+httpx
+python-dotenv
+aiosqlite
+pydantic
+jinja2
+aiofiles
+python-multipart
+fpdf2
+markdown
+PyJWT
+bleach
+prometheus-client
+jsonschema
+PyYAML
+
+# Runtime LLM/providers + infrastructure
+litellm
+openai
+anthropic
+psycopg2-binary
+pgvector
+redis
+sqlalchemy
+pydantic-settings
+opentelemetry-api
+opentelemetry-sdk
+opentelemetry-exporter-otlp
+langfuse
+cryptography
+docker
+paramiko
+asyncpg

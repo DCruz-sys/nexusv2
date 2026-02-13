@@ -1,0 +1,2 @@
+# Runtime-only install target used by container builds.
+-r requirements-runtime.txt
