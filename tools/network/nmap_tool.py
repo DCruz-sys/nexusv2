@@ -9,6 +9,7 @@ class NmapTool(BaseTool):
         super().__init__("nmap", "nmap", "Network port scanner and service detector")
 
     async def execute(self, target: str, scan_type: str = "default", ports: Optional[str] = None, additional_args: str = "") -> str:
+        normalized_target = await self.normalize_and_validate_target(target)
         cmd = ["nmap"]
         if scan_type == "quick":
             cmd += ["-T4", "-F"]
@@ -24,8 +25,8 @@ class NmapTool(BaseTool):
             cmd += ["-p", ports]
         if additional_args:
             cmd += additional_args.split()
-        cmd.append(target)
-        result = await self._run_command(cmd, timeout=600)
+        cmd.append(normalized_target)
+        result = await self._run_command(cmd, timeout=600, target=normalized_target)
         return result.get("stdout", result.get("error", ""))
 
     def parse(self, output: str) -> Dict[str, Any]:
