@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.env
+.env.*
+reports/
+data/*.db
+data/*.db-*
+*.sqlite
+
+# Generated scrape artifacts
+kali_tools_scraped.json

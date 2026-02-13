@@ -11,3 +11,4 @@ rich
 loguru
 beautifulsoup4
 lxml
+-r requirements-postgres.in
