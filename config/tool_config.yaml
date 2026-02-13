@@ -1,0 +1,4 @@
+network:
+  - nmap
+web:
+  - nuclei

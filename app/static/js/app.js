@@ -376,15 +376,33 @@ window.addEventListener('beforeunload', () => {
 // Navigation
 // ══════════════════════════════════════
 
+let activePageId = 'dashboard';
+
 function navigateTo(page) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    if (page === activePageId) return;
+
+    const currentPageEl = document.getElementById(`page-${activePageId}`);
+    const nextPageEl = document.getElementById(`page-${page}`);
+
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-
-    const pageEl = document.getElementById(`page-${page}`);
-    if (pageEl) pageEl.classList.add('active');
-
     const navEl = document.querySelector(`.nav-item[data-page="${page}"]`);
     if (navEl) navEl.classList.add('active');
+
+    if (currentPageEl) {
+        currentPageEl.classList.add('is-exiting');
+        currentPageEl.classList.remove('active');
+        window.setTimeout(() => currentPageEl.classList.remove('is-exiting'), 220);
+    }
+
+    if (nextPageEl) {
+        nextPageEl.classList.add('is-entering');
+        window.requestAnimationFrame(() => {
+            nextPageEl.classList.add('active');
+            window.setTimeout(() => nextPageEl.classList.remove('is-entering'), 240);
+        });
+    }
+
+    activePageId = page;
 
     // Load data for pages
     if (page === 'history') loadHistory();
