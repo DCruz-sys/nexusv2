@@ -16,6 +16,9 @@ class DummyNIM:
 class DummyMemory:
     def __init__(self):
         self.stored = []
+        self.procedural_stored = []
+        self.outcomes = []
+        self.pruned = False
 
     async def query_episodic(self, query_text, agent_type=None, limit=5):
         return []
@@ -23,16 +26,38 @@ class DummyMemory:
     async def store_episodic(self, **kwargs):
         self.stored.append(kwargs)
 
+    async def query_procedural_memory(self, agent_type, target_profile, task_type, limit=3):
+        return [{"strategy_template": {"name": "known_template", "steps": [{"action": "scan"}]}, "avg_reward": 1.2, "version": 1}]
+
+    async def store_procedural_memory(self, **kwargs):
+        self.procedural_stored.append(kwargs)
+        return len(self.procedural_stored)
+
+    async def record_strategy_outcome(self, **kwargs):
+        self.outcomes.append(kwargs)
+
+    async def prune_procedural_memory(self):
+        self.pruned = True
+
 
 class MinimalAgent(SelfLearningAgent):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.last_reason_context = None
+        self._reason_calls = 0
+
     async def _reason(self, context):
+        self.last_reason_context = context
+        self._reason_calls += 1
+        if self._reason_calls == 1:
+            return {"is_complete": False, "reasoning": "collect data", "next_action": "scan"}
         return {"is_complete": True, "reasoning": "done"}
 
     async def _act(self, thought):
         return {"action": "noop"}
 
     async def _observe(self, action):
-        return {"findings": []}
+        return {"findings": [{"service": "https"}]}
 
 
 def test_learn_and_execute_stores_experience_and_updates_strategy():
@@ -51,3 +76,21 @@ def test_reward_penalizes_out_of_scope_and_rewards_findings():
     agent = MinimalAgent("Meta", "test", DummyNIM(), DummyMemory(), learning_rate=0.1)
     reward = agent._calculate_reward({"success": True, "findings": [1, 2, 3], "out_of_scope_actions": 1})
     assert reward == pytest.approx(1.1)
+
+
+def test_agent_injects_templates_and_persists_distilled_strategies():
+    memory = DummyMemory()
+    agent = MinimalAgent("Meta", "test", DummyNIM(), memory, learning_rate=0.1)
+
+    result = asyncio.run(
+        agent.learn_and_execute(
+            {"type": "recon", "description": "Enumerate target services", "target": "acme.internal:443"}
+        )
+    )
+
+    assert result["success"] is True
+    assert agent.last_reason_context is not None
+    assert agent.last_reason_context["strategy_templates"]
+    assert memory.procedural_stored
+    assert memory.outcomes
+    assert memory.pruned is True
