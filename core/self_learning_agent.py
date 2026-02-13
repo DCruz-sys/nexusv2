@@ -88,6 +88,9 @@ class SelfLearningAgent(ABC):
             "confidence_threshold": 0.7,
         }
 
+    async def run(self, task: Dict[str, Any]) -> Dict[str, Any]:
+        return await self.learn_and_execute(task)
+
     async def learn_and_execute(self, task: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         context_task_id = str((context or {}).get("task_id") or "")
         task_id = str(task.get("task_id") or context_task_id or "") or str(uuid.uuid4())
@@ -113,7 +116,7 @@ class SelfLearningAgent(ABC):
 
         with telemetry.span("agent.learn_and_execute", attributes={"task_id": task_id, "agent": self.name, "role": self.role}):
             telemetry.trace_event(task_id=task_id, name="agent.task.start", input_payload={"task": task, "agent": self.name})
-            result = await self._react_loop(task, similar, {**(context or {}), "task_id": task_id})
+            result = await self._react_loop(task, similar, strategy_templates, {**(context or {}), "task_id": task_id})
 
         self.current_experience.reward = self._calculate_reward(result)
         self.current_experience.outcome = LearningSignal.SUCCESS if result.get("success") else LearningSignal.FAILURE
