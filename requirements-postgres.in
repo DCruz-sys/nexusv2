@@ -1,0 +1,5 @@
+# Optional PostgreSQL/vector memory profile
+# Install only when Postgres-backed memory storage is needed.
+asyncpg>=0.30.0
+pgvector>=0.3.6
+psycopg2-binary>=2.9.10

@@ -4,19 +4,37 @@ import os
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
-import asyncpg
+import importlib
+
 import redis.asyncio as redis
 from loguru import logger
-from pgvector.asyncpg import register_vector
+
+
+def _optional_import(module_name: str):
+    try:
+        return importlib.import_module(module_name)
+    except ModuleNotFoundError:
+        return None
+
+
+asyncpg = _optional_import('asyncpg')
+_register_mod = _optional_import('pgvector.asyncpg')
+register_vector = getattr(_register_mod, 'register_vector', None)
 
 
 class MemorySystem:
     def __init__(self, nim_provider: Any):
         self.nim = nim_provider
-        self.db_pool: Optional[asyncpg.Pool] = None
+        self.db_pool: Optional[Any] = None
         self.redis_client: Optional[redis.Redis] = None
+        self.enabled = True
 
     async def initialize(self) -> None:
+        if asyncpg is None:
+            self.enabled = False
+            logger.warning("asyncpg is not installed; memory DB features disabled. Install requirements-postgres.txt to enable.")
+            return
+
         self.db_pool = await asyncpg.create_pool(
             host=os.getenv("POSTGRES_HOST", "localhost"),
             port=int(os.getenv("POSTGRES_PORT", "5432")),
@@ -26,7 +44,8 @@ class MemorySystem:
             min_size=1,
             max_size=5,
         )
-        await register_vector(self.db_pool)
+        if register_vector is not None:
+            await register_vector(self.db_pool)
         self.redis_client = redis.from_url(
             f"redis://{os.getenv('REDIS_HOST', 'localhost')}:{os.getenv('REDIS_PORT', '6379')}",
             encoding="utf-8",
@@ -35,6 +54,8 @@ class MemorySystem:
         logger.info("Memory system initialized")
 
     async def store_episodic(self, agent_type: str, task: Dict[str, Any], action_plan: Dict[str, Any], results: Dict[str, Any], success: bool) -> int:
+        if not self.db_pool:
+            return -1
         episode_text = f"Agent:{agent_type} Task:{task.get('description','')} Success:{success}"
         embedding = await self.nim.get_embedding(episode_text)
         async with self.db_pool.acquire() as conn:
@@ -54,6 +75,8 @@ class MemorySystem:
             )
 
     async def query_episodic(self, query_text: str, agent_type: Optional[str] = None, limit: int = 5) -> List[Dict[str, Any]]:
+        if not self.db_pool:
+            return []
         cache_key = f"episodic:{hashlib.md5((query_text+str(agent_type)+str(limit)).encode()).hexdigest()}"
         if self.redis_client:
             cached = await self.redis_client.get(cache_key)
@@ -80,6 +103,8 @@ class MemorySystem:
         return data
 
     async def store_semantic(self, category: str, content: str, metadata: Dict[str, Any]) -> int:
+        if not self.db_pool:
+            return -1
         embedding = await self.nim.get_embedding(content)
         async with self.db_pool.acquire() as conn:
             return await conn.fetchval(
@@ -91,6 +116,8 @@ class MemorySystem:
             )
 
     async def query_semantic(self, query_text: str, category: Optional[str] = None, limit: int = 10) -> List[Dict[str, Any]]:
+        if not self.db_pool:
+            return []
         query_embedding = await self.nim.get_embedding(query_text)
         async with self.db_pool.acquire() as conn:
             if category:
@@ -116,6 +143,8 @@ class MemorySystem:
         strategy_template: Dict[str, Any],
         context_features: Optional[Dict[str, Any]] = None,
     ) -> int:
+        if not self.db_pool:
+            return -1
         strategy_hash = hashlib.sha256(json.dumps(strategy_template, sort_keys=True).encode()).hexdigest()
         context_features = context_features or {}
         async with self.db_pool.acquire() as conn:
@@ -183,6 +212,8 @@ class MemorySystem:
         action_sequence: Optional[List[Dict[str, Any]]] = None,
         context_features: Optional[Dict[str, Any]] = None,
     ) -> None:
+        if not self.db_pool:
+            return
         context_features = context_features or {}
         action_sequence = action_sequence or []
 
@@ -230,6 +261,8 @@ class MemorySystem:
         task_type: str,
         limit: int = 5,
     ) -> List[Dict[str, Any]]:
+        if not self.db_pool:
+            return []
         async with self.db_pool.acquire() as conn:
             rows = await conn.fetch(
                 """
@@ -252,6 +285,8 @@ class MemorySystem:
         return [dict(r) for r in rows]
 
     async def prune_procedural_memory(self, max_versions: int = 3, stale_days: int = 30) -> None:
+        if not self.db_pool:
+            return
         async with self.db_pool.acquire() as conn:
             await conn.execute(
                 """
