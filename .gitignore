@@ -8,3 +8,6 @@ reports/
 data/*.db
 data/*.db-*
 *.sqlite
+
+# Generated scrape artifacts
+kali_tools_scraped.json

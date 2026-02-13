@@ -11,12 +11,16 @@
    - `python -m venv .venv && source .venv/bin/activate`
 2. Install core runtime deps: `pip install -r requirements.docker.txt`
 3. (Optional) Install PostgreSQL/vector memory deps: `pip install -r requirements-postgres.txt`
-4. Start API: `uvicorn app.main:app --host 0.0.0.0 --port 8000`
-5. Health check: `curl http://127.0.0.1:8000/api/health`
+4. Verify active interpreter and packages:
+   - `python -c "import sys,shutil; print(sys.executable); print(shutil.which('uvicorn'))"`
+   - `python -c "import litellm; print(litellm.__version__)"`
+5. Start API (interpreter-safe): `python -m uvicorn app.main:app --host 0.0.0.0 --port 8000`
+6. Health check: `curl http://127.0.0.1:8000/api/health`
 
 ### Kali note (PEP 668)
 - If you see `externally-managed-environment`, use a virtualenv rather than system Python installs.
 - For optional Postgres extras that compile native extensions, ensure build headers/tools are installed (`libpq-dev`, `python3-dev`, and `build-essential`) when needed.
+- If traceback shows `/usr/bin/uvicorn`, reinstall dependencies inside the active venv and rerun with `python -m uvicorn app.main:app --host 0.0.0.0 --port 8000`.
 
 ## Supported Kali tools
 - High-value native wrappers: `nmap`, `nuclei`, `ffuf`, `sqlmap`, `amass`, `subfinder`, `httpx`.

@@ -1,11 +1,23 @@
 import asyncio
 import hashlib
+import importlib
 import json
 import os
 from typing import Any, Dict, List, Optional
 
-from litellm import acompletion, aembedding
 from loguru import logger
+
+
+def _optional_import(module_name: str):
+    try:
+        return importlib.import_module(module_name)
+    except ModuleNotFoundError:
+        return None
+
+
+_litellm = _optional_import("litellm")
+acompletion = getattr(_litellm, "acompletion", None)
+aembedding = getattr(_litellm, "aembedding", None)
 
 
 class NVIDIANIMProvider:
@@ -15,6 +27,16 @@ class NVIDIANIMProvider:
         self.api_key = os.getenv("NIM_API_KEY")
         self.base_url = os.getenv("NIM_BASE_URL", "https://integrate.api.nvidia.com/v1")
         self.enable_fallback = os.getenv("ENABLE_OLLAMA_FALLBACK", "true").lower() == "true"
+        self.available = bool(acompletion and aembedding)
+        self.unavailable_reason = ""
+        if not self.available:
+            self.unavailable_reason = (
+                "litellm is not installed. Install runtime deps or run `pip install litellm`. "
+                "NIM provider is unavailable."
+            )
+            if not self.enable_fallback:
+                raise RuntimeError(self.unavailable_reason + " Fallback is disabled.")
+            logger.warning(self.unavailable_reason)
         self.models: Dict[str, Dict[str, Any]] = {
             "reasoning": {"model": "nvidia/nemotron-4-340b-instruct", "max_tokens": 4096, "temperature": 0.2},
             "fast": {"model": "meta/llama-3.1-8b-instruct", "max_tokens": 2048, "temperature": 0.3},
@@ -27,6 +49,10 @@ class NVIDIANIMProvider:
         self._cache: Dict[str, Dict[str, Any]] = {}
         logger.info("NVIDIA NIM provider ready")
 
+    def _ensure_available(self) -> None:
+        if not self.available:
+            raise RuntimeError(self.unavailable_reason or "NIM provider unavailable")
+
     async def call_async(
         self,
         prompt: str,
@@ -36,6 +62,7 @@ class NVIDIANIMProvider:
         system_prompt: Optional[str] = None,
         response_format: str = "text",
     ) -> Dict[str, Any]:
+        self._ensure_available()
         model_cfg = self.models.get(model_type, self.models["reasoning"])
         cache_key = self._make_cache_key(prompt, model_type, temperature, max_tokens, system_prompt, response_format)
         if cache_key in self._cache:
@@ -91,6 +118,7 @@ class NVIDIANIMProvider:
         temperature: Optional[float],
         max_tokens: Optional[int],
     ) -> Dict[str, Any]:
+        self._ensure_available()
         self.fallback_count += 1
         messages = [{"role": "user", "content": prompt}]
         if system_prompt:
@@ -112,6 +140,7 @@ class NVIDIANIMProvider:
         }
 
     async def get_embedding(self, text: str) -> List[float]:
+        self._ensure_available()
         resp = await aembedding(
             model=f"nvidia_nim/{self.models['embedding']['model']}",
             input=[text],
@@ -126,6 +155,8 @@ class NVIDIANIMProvider:
             "total_tokens": self.total_tokens,
             "fallback_calls": self.fallback_count,
             "fallback_percentage": (self.fallback_count / self.call_count * 100) if self.call_count else 0,
+            "available": self.available,
+            "unavailable_reason": self.unavailable_reason,
         }
 
     @staticmethod
