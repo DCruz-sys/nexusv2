@@ -1,0 +1,5 @@
+# Optional PostgreSQL/vector memory profile lockfile
+# Install with: pip install -r requirements-postgres.txt
+asyncpg==0.30.0
+pgvector==0.3.6
+psycopg2-binary==2.9.10
