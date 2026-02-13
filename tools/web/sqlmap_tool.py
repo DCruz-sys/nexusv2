@@ -12,7 +12,7 @@ class SqlmapTool(BaseTool):
         cmd = ["sqlmap", "-u", target, "--batch"]
         if additional_args:
             cmd += additional_args.split()
-        result = await self._run_command(cmd, timeout=1200)
+        result = await self._run_command(cmd, timeout=1200, target=target)
         return result.get("stdout", result.get("error", ""))
 
     def parse(self, output: str) -> Dict[str, Any]:

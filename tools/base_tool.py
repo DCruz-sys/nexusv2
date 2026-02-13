@@ -30,6 +30,7 @@ class BaseTool(ABC):
         "reboot",
     }
     MAX_TIMEOUT_SECONDS = 900
+    DESTRUCTIVE_FLAGS = {"--flush-session", "--os-shell", "--force", "--delete", "--drop", "-rf"}
 
     def __init__(self, name: str, command: str, description: str):
         self.name = name
@@ -90,10 +91,11 @@ class BaseTool(ABC):
             return {"allowed": False, "reason": f"target_out_of_scope:{exc}"}
 
         denied_token = self._has_denied_argument(cmd)
-        if denied_token and not approval_token:
+        destructive = next((token for token in cmd if token.strip().lower() in self.DESTRUCTIVE_FLAGS), None)
+        if (denied_token or destructive) and not approval_token:
             return {
                 "allowed": False,
-                "reason": f"denied_argument:{denied_token}",
+                "reason": f"denied_argument:{denied_token or destructive}",
             }
 
         max_timeout = self._max_timeout()
@@ -129,7 +131,9 @@ class BaseTool(ABC):
                     "correlation_id": correlation_id,
                     "tool": self.name,
                     "command": cmd,
+                    "target": target,
                     "timeout": timeout,
+                    "decision_reason": policy.get("reason"),
                     "policy_result": policy,
                 },
             )
@@ -150,6 +154,7 @@ class BaseTool(ABC):
                 "docker_command": final_cmd,
                 "timeout": timeout,
                 "retries": retries,
+                "decision_reason": "policy_allow",
             },
         )
 

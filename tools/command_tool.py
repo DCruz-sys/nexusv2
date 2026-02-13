@@ -15,7 +15,7 @@ class CommandTool(BaseTool):
 
     async def execute(self, target: str, timeout: int = 300, use_docker: bool = True, **params: Any) -> str:
         argv = build_argv(recipe=self.recipe, target=target, params=params)
-        result = await self._run_command(argv, timeout=timeout or self.recipe.timeout_sec_default, use_docker=use_docker)
+        result = await self._run_command(argv, timeout=timeout or self.recipe.timeout_sec_default, use_docker=use_docker, target=target, approval_token=params.pop("approval_token", None))
         return result.get("stdout", result.get("error", ""))
 
     def parse(self, output: str) -> dict[str, Any]:
