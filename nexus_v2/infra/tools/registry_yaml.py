@@ -17,10 +17,14 @@ from nexus_v2.config import Settings, get_settings
 
 @dataclass(frozen=True)
 class ToolRecipe:
+    tool_id: str
     name: str
     binary: str
     category: str
-    risk_level: str
+    risk: str
+    command_template: str
+    parser_type: str
+    scope_requirements: list[str]
     args_template: list[str]
     hitl_default: bool = False
     timeout_sec_default: int = 300
@@ -47,19 +51,36 @@ class ToolRegistry:
             payload = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
             if not isinstance(payload, dict):
                 raise ToolRegistryError(f"Invalid recipe format: {path}")
-            recipe = self._parse_recipe(payload, source=str(path))
-            recipes[recipe.name] = recipe
+            if isinstance(payload.get("tools"), list):
+                for row in payload["tools"]:
+                    if not isinstance(row, dict):
+                        continue
+                    recipe = self._parse_recipe(row, source=str(path))
+                    recipes[recipe.name] = recipe
+            else:
+                recipe = self._parse_recipe(payload, source=str(path))
+                recipes[recipe.name] = recipe
         self._recipes = recipes
 
     def _parse_recipe(self, payload: dict[str, Any], *, source: str) -> ToolRecipe:
-        name = str(payload.get("name") or "").strip()
+        name = str(payload.get("name") or payload.get("tool_id") or "").strip()
         binary = str(payload.get("binary") or "").strip()
         category = str(payload.get("category") or "misc").strip().lower()
-        risk = str(payload.get("risk_level") or "low").strip().lower()
+        risk = str(payload.get("risk") or payload.get("risk_level") or "low").strip().lower()
+        parser_type = str(payload.get("parser_type") or "plain_text").strip().lower()
+        scope_requirements_raw = payload.get("scope_requirements") or ["target"]
+        if not isinstance(scope_requirements_raw, list):
+            raise ToolRegistryError(f"{source}: scope_requirements must be a list")
+        scope_requirements = [str(x).strip().lower() for x in scope_requirements_raw if str(x).strip()]
+        command_template = str(
+            payload.get("command_template") or " ".join(payload.get("args_template") or payload.get("argv") or [])
+        ).strip()
         args_template = payload.get("args_template") or payload.get("argv") or []
         if not isinstance(args_template, list):
             raise ToolRegistryError(f"{source}: args_template must be a list")
         args_template = [str(x) for x in args_template if str(x).strip()]
+        if not args_template and command_template:
+            args_template = [command_template]
         if not name or not binary or not args_template:
             raise ToolRegistryError(f"{source}: recipe missing required fields (name/binary/args_template)")
         hitl_default = bool(payload.get("hitl_default") or False)
@@ -71,10 +92,14 @@ class ToolRegistry:
         if output_rules is not None and not isinstance(output_rules, dict):
             raise ToolRegistryError(f"{source}: output_rules must be an object")
         return ToolRecipe(
+            tool_id=name,
             name=name,
             binary=binary,
             category=category,
-            risk_level=risk,
+            risk=risk,
+            command_template=command_template,
+            parser_type=parser_type,
+            scope_requirements=scope_requirements,
             args_template=args_template,
             hitl_default=hitl_default,
             timeout_sec_default=timeout,
@@ -90,4 +115,3 @@ class ToolRegistry:
 
 
 tool_registry = ToolRegistry()
-

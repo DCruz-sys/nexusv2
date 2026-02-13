@@ -108,6 +108,184 @@ class MemorySystem:
                 )
         return [dict(r) for r in rows]
 
+    async def store_procedural_memory(
+        self,
+        agent_type: str,
+        target_profile: str,
+        task_type: str,
+        strategy_template: Dict[str, Any],
+        context_features: Optional[Dict[str, Any]] = None,
+    ) -> int:
+        strategy_hash = hashlib.sha256(json.dumps(strategy_template, sort_keys=True).encode()).hexdigest()
+        context_features = context_features or {}
+        async with self.db_pool.acquire() as conn:
+            existing = await conn.fetchrow(
+                """
+                SELECT id, version FROM procedural_memory
+                WHERE agent_type=$1 AND target_profile=$2 AND task_type=$3 AND strategy_hash=$4 AND is_active=TRUE
+                ORDER BY version DESC
+                LIMIT 1
+                """,
+                agent_type,
+                target_profile,
+                task_type,
+                strategy_hash,
+            )
+            if existing:
+                await conn.execute(
+                    """
+                    UPDATE procedural_memory
+                    SET strategy_template=$1, context_features=$2, updated_at=$3
+                    WHERE id=$4
+                    """,
+                    json.dumps(strategy_template),
+                    json.dumps(context_features),
+                    datetime.now(),
+                    existing["id"],
+                )
+                return existing["id"]
+
+            version = await conn.fetchval(
+                """
+                SELECT COALESCE(MAX(version), 0) + 1
+                FROM procedural_memory
+                WHERE agent_type=$1 AND target_profile=$2 AND task_type=$3
+                """,
+                agent_type,
+                target_profile,
+                task_type,
+            )
+
+            return await conn.fetchval(
+                """
+                INSERT INTO procedural_memory
+                (agent_type, target_profile, task_type, strategy_hash, strategy_template, context_features, version)
+                VALUES ($1,$2,$3,$4,$5,$6,$7)
+                RETURNING id
+                """,
+                agent_type,
+                target_profile,
+                task_type,
+                strategy_hash,
+                json.dumps(strategy_template),
+                json.dumps(context_features),
+                version,
+            )
+
+    async def record_strategy_outcome(
+        self,
+        strategy_id: int,
+        strategy_hash: str,
+        target_profile: str,
+        task_type: str,
+        reward: float,
+        outcome: str,
+        action_sequence: Optional[List[Dict[str, Any]]] = None,
+        context_features: Optional[Dict[str, Any]] = None,
+    ) -> None:
+        context_features = context_features or {}
+        action_sequence = action_sequence or []
+
+        async with self.db_pool.acquire() as conn:
+            await conn.execute(
+                """
+                INSERT INTO strategy_outcomes
+                (procedural_memory_id, strategy_hash, target_profile, task_type, context_features, reward, outcome, action_sequence)
+                VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
+                """,
+                strategy_id,
+                strategy_hash,
+                target_profile,
+                task_type,
+                json.dumps(context_features),
+                reward,
+                outcome,
+                json.dumps(action_sequence),
+            )
+
+            await conn.execute(
+                """
+                UPDATE procedural_memory
+                SET
+                    usage_count = usage_count + 1,
+                    success_count = success_count + CASE WHEN $2 = 'success' THEN 1 ELSE 0 END,
+                    failure_count = failure_count + CASE WHEN $2 != 'success' THEN 1 ELSE 0 END,
+                    reward_sum = reward_sum + $1,
+                    avg_reward = (reward_sum + $1) / NULLIF(usage_count + 1, 0),
+                    last_reward = $1,
+                    last_used_at = $3,
+                    updated_at = $3
+                WHERE id = $4
+                """,
+                reward,
+                outcome,
+                datetime.now(),
+                strategy_id,
+            )
+
+    async def query_procedural_memory(
+        self,
+        agent_type: str,
+        target_profile: str,
+        task_type: str,
+        limit: int = 5,
+    ) -> List[Dict[str, Any]]:
+        async with self.db_pool.acquire() as conn:
+            rows = await conn.fetch(
+                """
+                SELECT id, agent_type, target_profile, task_type, strategy_hash, strategy_template,
+                       context_features, version, usage_count, success_count, failure_count,
+                       avg_reward, last_reward, last_used_at, updated_at
+                FROM procedural_memory
+                WHERE agent_type=$1
+                  AND target_profile=$2
+                  AND task_type=$3
+                  AND is_active=TRUE
+                ORDER BY avg_reward DESC, success_count DESC, updated_at DESC
+                LIMIT $4
+                """,
+                agent_type,
+                target_profile,
+                task_type,
+                limit,
+            )
+        return [dict(r) for r in rows]
+
+    async def prune_procedural_memory(self, max_versions: int = 3, stale_days: int = 30) -> None:
+        async with self.db_pool.acquire() as conn:
+            await conn.execute(
+                """
+                UPDATE procedural_memory pm
+                SET is_active = FALSE, updated_at = $1
+                WHERE id IN (
+                    SELECT id FROM (
+                        SELECT id,
+                               ROW_NUMBER() OVER (
+                                   PARTITION BY agent_type, target_profile, task_type
+                                   ORDER BY version DESC
+                               ) AS version_rank
+                        FROM procedural_memory
+                        WHERE is_active = TRUE
+                    ) ranked
+                    WHERE version_rank > $2
+                )
+                """,
+                datetime.now(),
+                max_versions,
+            )
+
+            await conn.execute(
+                """
+                UPDATE procedural_memory
+                SET is_active = FALSE, updated_at = $1
+                WHERE is_active = TRUE
+                  AND COALESCE(last_used_at, created_at) < (NOW() - ($2::text || ' days')::interval)
+                  AND avg_reward <= 0
+                """,
+                datetime.now(),
+                stale_days,
+            )
+
     async def close(self) -> None:
         if self.db_pool:
             await self.db_pool.close()

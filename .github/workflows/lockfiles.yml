@@ -1,0 +1,15 @@
+name: lockfile-consistency
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  check-lockfiles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v4
+      - name: Verify dependency lockfiles are current
+        run: ./scripts/check_lockfiles.sh

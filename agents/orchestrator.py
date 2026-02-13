@@ -7,6 +7,7 @@ from agents.cve_intel_agent import CVEIntelligenceAgent
 from agents.exploit_agent import ExploitAgent
 from agents.recon_agent import ReconAgent
 from agents.report_agent import ReportGeneratorAgent
+from agents.v3.recon_agent import ReconAgent as ReconAgentV3
 from agents.vuln_scan_agent import VulnScanAgent
 from core.guardrails import SecurityGuardrails
 from core.memory_system import MemorySystem
@@ -20,11 +21,16 @@ class PentestOrchestrator:
         self.memory = MemorySystem(self.nim)
         self.guardrails = SecurityGuardrails(self.nim)
         self.agents: Dict[str, Any] = {}
+        self.use_v3_agents = os.getenv("USE_V3_AGENTS", "false").lower() == "true"
 
     async def initialize(self) -> None:
         await self.memory.initialize()
+        v2_recon = ReconAgent(self.nim, self.memory, self.guardrails)
+        v3_recon = ReconAgentV3(self.nim, self.memory)
         self.agents = {
-            "recon": ReconAgent(self.nim, self.memory, self.guardrails),
+            "recon": v3_recon if self.use_v3_agents else v2_recon,
+            "recon_v2": v2_recon,
+            "recon_v3": v3_recon,
             "vuln_scan": VulnScanAgent(self.nim, self.memory, self.guardrails),
             "cve_intel": CVEIntelligenceAgent(self.nim, self.memory, self.guardrails),
             "exploit": ExploitAgent(self.nim, self.memory, self.guardrails),
