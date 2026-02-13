@@ -1,0 +1,4151 @@
+schema_version: 2
+tools:
+- tool_id: 0trace
+  binary: 0trace
+  category: information_gathering
+  risk: low
+  description: traceroute tool that can run within an existing TCP connection
+  command_template: 0trace {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: iputils-arping
+  binary: iputils-arping
+  category: information_gathering
+  risk: low
+  description: Tool to send ICMP echo requests to an ARP address
+  command_template: iputils-arping {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: braa
+  binary: braa
+  category: information_gathering
+  risk: low
+  description: Mass SNMP scanner
+  command_template: braa {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: dmitry
+  binary: dmitry
+  category: information_gathering
+  risk: low
+  description: Deepmagic Information Gathering Tool
+  command_template: dmitry {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: dnsenum
+  binary: dnsenum
+  category: information_gathering
+  risk: low
+  description: tool to enumerate domain DNS information
+  command_template: dnsenum {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - host
+  tags:
+  - information gathering
+  - kali
+- tool_id: dnsmap
+  binary: dnsmap
+  category: information_gathering
+  risk: low
+  description: DNS domain name brute forcing tool
+  command_template: dnsmap {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - host
+  tags:
+  - information gathering
+  - kali
+- tool_id: dnsrecon
+  binary: dnsrecon
+  category: information_gathering
+  risk: low
+  description: Powerful DNS enumeration script
+  command_template: dnsrecon {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - host
+  tags:
+  - information gathering
+  - kali
+- tool_id: dnstracer
+  binary: dnstracer
+  category: information_gathering
+  risk: low
+  description: trace DNS queries to the source
+  command_template: dnstracer {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: dnswalk
+  binary: dnswalk
+  category: information_gathering
+  risk: low
+  description: Checks dns zone information using nameserver lookups
+  command_template: dnswalk {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: enum4linux
+  binary: enum4linux
+  category: information_gathering
+  risk: low
+  description: Enumerates info from Windows and Samba systems
+  command_template: enum4linux {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - host
+  tags:
+  - information gathering
+  - kali
+- tool_id: fierce
+  binary: fierce
+  category: information_gathering
+  risk: low
+  description: Domain DNS scanner
+  command_template: fierce {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: firewalk
+  binary: firewalk
+  category: information_gathering
+  risk: low
+  description: active reconnaissance network security tool
+  command_template: firewalk {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: fping
+  binary: fping
+  category: information_gathering
+  risk: low
+  description: sends ICMP ECHO_REQUEST packets to network hosts
+  command_template: fping {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: fragrouter
+  binary: fragrouter
+  category: information_gathering
+  risk: low
+  description: IDS evasion toolkit
+  command_template: fragrouter {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: ftester
+  binary: ftester
+  category: information_gathering
+  risk: low
+  description: Tool for testing firewalls and Intrusion Detection System (IDS)
+  command_template: ftester {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: hping3
+  binary: hping3
+  category: information_gathering
+  risk: low
+  description: Active Network Smashing Tool
+  command_template: hping3 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - host
+  tags:
+  - information gathering
+  - kali
+- tool_id: ike-scan
+  binary: ike-scan
+  category: information_gathering
+  risk: low
+  description: discover and fingerprint IKE hosts (IPsec VPN Servers)
+  command_template: ike-scan {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: intrace
+  binary: intrace
+  category: information_gathering
+  risk: low
+  description: Traceroute-like application piggybacking on existing TCP connections
+  command_template: intrace {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: irpas
+  binary: irpas
+  category: information_gathering
+  risk: low
+  description: Internetwork Routing Protocol Attack Suite
+  command_template: irpas {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: lbd
+  binary: lbd
+  category: information_gathering
+  risk: low
+  description: Load balancer detector
+  command_template: lbd {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: legion
+  binary: legion
+  category: information_gathering
+  risk: low
+  description: semi-automated network penetration testing tool
+  command_template: legion {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: maltego
+  binary: maltego
+  category: information_gathering
+  risk: low
+  description: Open source intelligence and forensics application
+  command_template: maltego {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: masscan
+  binary: masscan
+  category: information_gathering
+  risk: low
+  description: TCP port scanner
+  command_template: masscan {args} {target}
+  default_args: --help
+  parser_type: grepable
+  scope_requirements:
+  - host
+  tags:
+  - information gathering
+  - kali
+- tool_id: metagoofil
+  binary: metagoofil
+  category: information_gathering
+  risk: low
+  description: Tool designed for extracting metadata of public documents
+  command_template: metagoofil {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: nbtscan
+  binary: nbtscan
+  category: information_gathering
+  risk: low
+  description: scan networks searching for NetBIOS information
+  command_template: nbtscan {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: ncat
+  binary: ncat
+  category: information_gathering
+  risk: low
+  description: NMAP netcat reimplementation
+  command_template: ncat {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: netdiscover
+  binary: netdiscover
+  category: information_gathering
+  risk: low
+  description: active/passive network address scanner using ARP requests
+  command_template: netdiscover {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: netmask
+  binary: netmask
+  category: information_gathering
+  risk: low
+  description: helps determine network masks
+  command_template: netmask {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: nmap
+  binary: nmap
+  category: information_gathering
+  risk: low
+  description: The Network Mapper
+  command_template: nmap {args} {target}
+  default_args: --help
+  parser_type: xml
+  scope_requirements:
+  - host
+  tags:
+  - information gathering
+  - kali
+- tool_id: onesixtyone
+  binary: onesixtyone
+  category: information_gathering
+  risk: low
+  description: fast and simple SNMP scanner
+  command_template: onesixtyone {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: p0f
+  binary: p0f
+  category: information_gathering
+  risk: low
+  description: Passive OS fingerprinting tool
+  command_template: p0f {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: qsslcaudit
+  binary: qsslcaudit
+  category: information_gathering
+  risk: low
+  description: test SSL/TLS clients how secure they are
+  command_template: qsslcaudit {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: recon-ng
+  binary: recon-ng
+  category: information_gathering
+  risk: low
+  description: Web Reconnaissance framework written in Python
+  command_template: recon-ng {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: smbmap
+  binary: smbmap
+  category: information_gathering
+  risk: low
+  description: handy SMB enumeration tool
+  command_template: smbmap {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: smtp-user-enum
+  binary: smtp-user-enum
+  category: information_gathering
+  risk: low
+  description: Username guessing tool for the SMTP service
+  command_template: smtp-user-enum {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: snmpcheck
+  binary: snmpcheck
+  category: information_gathering
+  risk: low
+  description: SNMP service enumeration tool
+  command_template: snmpcheck {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: ssldump
+  binary: ssldump
+  category: information_gathering
+  risk: low
+  description: SSLv3/TLS network protocol analyzer
+  command_template: ssldump {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: sslh
+  binary: sslh
+  category: information_gathering
+  risk: low
+  description: Applicative protocol multiplexer
+  command_template: sslh {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: sslscan
+  binary: sslscan
+  category: information_gathering
+  risk: low
+  description: Tests SSL/TLS enabled services to discover supported cipher suites
+  command_template: sslscan {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: sslyze
+  binary: sslyze
+  category: information_gathering
+  risk: low
+  description: Fast and full-featured SSL scanner
+  command_template: sslyze {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: swaks
+  binary: swaks
+  category: information_gathering
+  risk: low
+  description: SMTP command-line test tool
+  command_template: swaks {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: thc-ipv6
+  binary: thc-ipv6
+  category: information_gathering
+  risk: low
+  description: The Hacker Choice's IPv6 Attack Toolkit
+  command_template: thc-ipv6 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: theharvester
+  binary: theharvester
+  category: information_gathering
+  risk: low
+  description: tool for gathering e-mail accounts and subdomain names from public
+    sources
+  command_template: theharvester {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: tlssled
+  binary: tlssled
+  category: information_gathering
+  risk: low
+  description: Evaluates the security of a target SSL/TLS (HTTPS) server
+  command_template: tlssled {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: twofi
+  binary: twofi
+  category: information_gathering
+  risk: low
+  description: Twitter words of interest
+  command_template: twofi {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: unicornscan
+  binary: unicornscan
+  category: information_gathering
+  risk: low
+  description: Userland distributed TCP/IP stack
+  command_template: unicornscan {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: urlcrazy
+  binary: urlcrazy
+  category: information_gathering
+  risk: low
+  description: Domain typo generator
+  command_template: urlcrazy {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: wafw00f
+  binary: wafw00f
+  category: information_gathering
+  risk: low
+  description: identify and fingerprint Web Application Firewall products
+  command_template: wafw00f {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: zenmap
+  binary: zenmap
+  category: information_gathering
+  risk: low
+  description: The Network Mapper Front End
+  command_template: zenmap {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - information gathering
+  - kali
+- tool_id: afl++
+  binary: afl++
+  category: vulnerability_analysis
+  risk: medium
+  description: instrumentation-driven fuzzer for binary formats
+  command_template: afl++ {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: bed
+  binary: bed
+  category: vulnerability_analysis
+  risk: medium
+  description: A network protocol fuzzer
+  command_template: bed {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: cisco-auditing-tool
+  binary: cisco-auditing-tool
+  category: vulnerability_analysis
+  risk: medium
+  description: Scans Cisco routers for vulnerabilities
+  command_template: cisco-auditing-tool {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: cisco-global-exploiter
+  binary: cisco-global-exploiter
+  category: vulnerability_analysis
+  risk: medium
+  description: Simple and fast Cisco exploitation tool
+  command_template: cisco-global-exploiter {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: cisco-ocs
+  binary: cisco-ocs
+  category: vulnerability_analysis
+  risk: medium
+  description: Mass Cisco scanner
+  command_template: cisco-ocs {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: cisco-torch
+  binary: cisco-torch
+  category: vulnerability_analysis
+  risk: medium
+  description: Cisco device scanner
+  command_template: cisco-torch {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: copy-router-config
+  binary: copy-router-config
+  category: vulnerability_analysis
+  risk: medium
+  description: Copies Cisco configs via SNMP
+  command_template: copy-router-config {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: dhcpig
+  binary: dhcpig
+  category: vulnerability_analysis
+  risk: medium
+  description: DHCP exhaustion script using scapy network library
+  command_template: dhcpig {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: enumiax
+  binary: enumiax
+  category: vulnerability_analysis
+  risk: medium
+  description: IAX protocol username enumerator
+  command_template: enumiax {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: gvm
+  binary: gvm
+  category: vulnerability_analysis
+  risk: medium
+  description: remote network security auditor - metapackage and useful scripts
+  command_template: gvm {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: iaxflood
+  binary: iaxflood
+  category: vulnerability_analysis
+  risk: medium
+  description: VoIP flooder tool
+  command_template: iaxflood {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: inviteflood
+  binary: inviteflood
+  category: vulnerability_analysis
+  risk: medium
+  description: SIP/SDP INVITE message flooding over UDP/IP
+  command_template: inviteflood {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: lynis
+  binary: lynis
+  category: vulnerability_analysis
+  risk: medium
+  description: security auditing tool for Unix based systems
+  command_template: lynis {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: nikto
+  binary: nikto
+  category: vulnerability_analysis
+  risk: medium
+  description: web server security scanner
+  command_template: nikto {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - url
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: ohrwurm
+  binary: ohrwurm
+  category: vulnerability_analysis
+  risk: medium
+  description: RTP fuzzer
+  command_template: ohrwurm {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: peass
+  binary: peass
+  category: vulnerability_analysis
+  risk: medium
+  description: Privilege Escalation Awesome Scripts SUITE
+  command_template: peass {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: protos-sip
+  binary: protos-sip
+  category: vulnerability_analysis
+  risk: medium
+  description: SIP test suite
+  command_template: protos-sip {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: rtpbreak
+  binary: rtpbreak
+  category: vulnerability_analysis
+  risk: medium
+  description: Detects, reconstructs, and analyzes RTP sessions
+  command_template: rtpbreak {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: rtpflood
+  binary: rtpflood
+  category: vulnerability_analysis
+  risk: medium
+  description: Tool to flood any RTP device
+  command_template: rtpflood {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: rtpinsertsound
+  binary: rtpinsertsound
+  category: vulnerability_analysis
+  risk: medium
+  description: Inserts audio into a specified stream
+  command_template: rtpinsertsound {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: rtpmixsound
+  binary: rtpmixsound
+  category: vulnerability_analysis
+  risk: medium
+  description: Mixes pre-recorded audio in real-time
+  command_template: rtpmixsound {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: sctpscan
+  binary: sctpscan
+  category: vulnerability_analysis
+  risk: medium
+  description: SCTP network scanner for discovery and security
+  command_template: sctpscan {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: sfuzz
+  binary: sfuzz
+  category: vulnerability_analysis
+  risk: medium
+  description: Black Box testing utilities
+  command_template: sfuzz {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: siege
+  binary: siege
+  category: vulnerability_analysis
+  risk: medium
+  description: HTTP regression testing and benchmarking utility
+  command_template: siege {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: siparmyknife
+  binary: siparmyknife
+  category: vulnerability_analysis
+  risk: medium
+  description: SIP fuzzing tool
+  command_template: siparmyknife {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: sipp
+  binary: sipp
+  category: vulnerability_analysis
+  risk: medium
+  description: Traffic generator for the SIP protocol
+  command_template: sipp {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: sipsak
+  binary: sipsak
+  category: vulnerability_analysis
+  risk: medium
+  description: SIP Swiss army knife
+  command_template: sipsak {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: sipvicious
+  binary: sipvicious
+  category: vulnerability_analysis
+  risk: medium
+  description: tools to audit SIP based VoIP systems
+  command_template: sipvicious {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: slowhttptest
+  binary: slowhttptest
+  category: vulnerability_analysis
+  risk: medium
+  description: application layer Denial of Service attacks simulation tool
+  command_template: slowhttptest {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: spike
+  binary: spike
+  category: vulnerability_analysis
+  risk: medium
+  description: Network protocol fuzzer
+  command_template: spike {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: t50
+  binary: t50
+  category: vulnerability_analysis
+  risk: medium
+  description: Multi-protocol packet injector tool
+  command_template: t50 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: thc-ssl-dos
+  binary: thc-ssl-dos
+  category: vulnerability_analysis
+  risk: medium
+  description: Stress tester for the SSL handshake
+  command_template: thc-ssl-dos {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: unix-privesc-check
+  binary: unix-privesc-check
+  category: vulnerability_analysis
+  risk: medium
+  description: Script to check for simple privilege escalation vectors
+  command_template: unix-privesc-check {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: voiphopper
+  binary: voiphopper
+  category: vulnerability_analysis
+  risk: medium
+  description: Runs a VLAN hop security test
+  command_template: voiphopper {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: yersinia
+  binary: yersinia
+  category: vulnerability_analysis
+  risk: medium
+  description: Network vulnerabilities check software
+  command_template: yersinia {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - vulnerability analysis
+  - kali
+- tool_id: apache-users
+  binary: apache-users
+  category: web_application
+  risk: medium
+  description: Enumerate usernames on systems with Apache UserDir module
+  command_template: apache-users {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: apache2
+  binary: apache2
+  category: web_application
+  risk: medium
+  description: Apache HTTP Server
+  command_template: apache2 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: beef-xss
+  binary: beef-xss
+  category: web_application
+  risk: medium
+  description: Browser Exploitation Framework (BeEF)
+  command_template: beef-xss {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: burpsuite
+  binary: burpsuite
+  category: web_application
+  risk: medium
+  description: platform for security testing of web applications
+  command_template: burpsuite {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: cadaver
+  binary: cadaver
+  category: web_application
+  risk: medium
+  description: command-line WebDAV client
+  command_template: cadaver {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: commix
+  binary: commix
+  category: web_application
+  risk: medium
+  description: Automated All-in-One OS Command Injection and Exploitation Tool
+  command_template: commix {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: cutycapt
+  binary: cutycapt
+  category: web_application
+  risk: medium
+  description: utility to capture WebKit's rendering of a web page
+  command_template: cutycapt {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: davtest
+  binary: davtest
+  category: web_application
+  risk: medium
+  description: Testing tool for WebDAV servers
+  command_template: davtest {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: default-mysql-server
+  binary: default-mysql-server
+  category: web_application
+  risk: medium
+  description: MySQL database server binaries and system database setup (metapackage)
+  command_template: default-mysql-server {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: dirb
+  binary: dirb
+  category: web_application
+  risk: medium
+  description: URL bruteforcing tool
+  command_template: dirb {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: dirbuster
+  binary: dirbuster
+  category: web_application
+  risk: medium
+  description: Web server directory brute-forcer
+  command_template: dirbuster {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: dotdotpwn
+  binary: dotdotpwn
+  category: web_application
+  risk: medium
+  description: Directory Traversal Fuzzer.
+  command_template: dotdotpwn {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: eyewitness
+  binary: eyewitness
+  category: web_application
+  risk: medium
+  description: Rapid web application triage tool
+  command_template: eyewitness {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: ferret-sidejack
+  binary: ferret-sidejack
+  category: web_application
+  risk: medium
+  description: Monitors data and extracts interesting data
+  command_template: ferret-sidejack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: hakrawler
+  binary: hakrawler
+  category: web_application
+  risk: medium
+  description: Web crawler designed for easy, quick discovery of endpoints and assets
+  command_template: hakrawler {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: hamster-sidejack
+  binary: hamster-sidejack
+  category: web_application
+  risk: medium
+  description: Sidejacking tool
+  command_template: hamster-sidejack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: heartleech
+  binary: heartleech
+  category: web_application
+  risk: medium
+  description: Scanner detecting systems vulnerable to the heartbleed OpenSSL bug
+  command_template: heartleech {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: httprint
+  binary: httprint
+  category: web_application
+  risk: medium
+  description: Web server fingerprinting tool
+  command_template: httprint {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: httrack
+  binary: httrack
+  category: web_application
+  risk: medium
+  description: Copy websites to your computer (Offline browser)
+  command_template: httrack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: hydra
+  binary: hydra
+  category: web_application
+  risk: medium
+  description: very fast network logon cracker
+  command_template: hydra {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - host
+  tags:
+  - web application
+  - kali
+- tool_id: jboss-autopwn
+  binary: jboss-autopwn
+  category: web_application
+  risk: medium
+  description: JBoss script for obtaining remote shell access
+  command_template: jboss-autopwn {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: joomscan
+  binary: joomscan
+  category: web_application
+  risk: medium
+  description: OWASP Joomla Vulnerability Scanner Project
+  command_template: joomscan {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: jsql-injection
+  binary: jsql-injection
+  category: web_application
+  risk: medium
+  description: Java tool for automatic database injection
+  command_template: jsql-injection {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: laudanum
+  binary: laudanum
+  category: web_application
+  risk: medium
+  description: Collection of injectable web files
+  command_template: laudanum {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: medusa
+  binary: medusa
+  category: web_application
+  risk: medium
+  description: fast, parallel, modular, login brute-forcer for network services
+  command_template: medusa {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: mitmproxy
+  binary: mitmproxy
+  category: web_application
+  risk: medium
+  description: SSL-capable man-in-the-middle HTTP proxy
+  command_template: mitmproxy {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: ncrack
+  binary: ncrack
+  category: web_application
+  risk: medium
+  description: High-speed network authentication cracking tool
+  command_template: ncrack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: nishang
+  binary: nishang
+  category: web_application
+  risk: medium
+  description: Collection of PowerShell scripts and payloads
+  command_template: nishang {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: oscanner
+  binary: oscanner
+  category: web_application
+  risk: medium
+  description: Oracle assessment framework
+  command_template: oscanner {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: owasp-mantra-ff
+  binary: owasp-mantra-ff
+  category: web_application
+  risk: medium
+  description: Web application security testing framework built on top of Firefox
+  command_template: owasp-mantra-ff {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: padbuster
+  binary: padbuster
+  category: web_application
+  risk: medium
+  description: Script for performing Padding Oracle attacks
+  command_template: padbuster {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: paros
+  binary: paros
+  category: web_application
+  risk: medium
+  description: Web application proxy
+  command_template: paros {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: patator
+  binary: patator
+  category: web_application
+  risk: medium
+  description: Multi-purpose brute-forcer
+  command_template: patator {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: php
+  binary: php
+  category: web_application
+  risk: medium
+  description: server-side, HTML-embedded scripting language (default)
+  command_template: php {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: php-mysql
+  binary: php-mysql
+  category: web_application
+  risk: medium
+  description: MySQL module for PHP [default]
+  command_template: php-mysql {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: proxychains4
+  binary: proxychains4
+  category: web_application
+  risk: medium
+  description: redirect connections through socks/http proxies (proxychains-ng)
+  command_template: proxychains4 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: proxytunnel
+  binary: proxytunnel
+  category: web_application
+  risk: medium
+  description: Help SSH and other protocols through HTTP(S) proxies
+  command_template: proxytunnel {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: redsocks
+  binary: redsocks
+  category: web_application
+  risk: medium
+  description: arbitrary TCP connection redirector to a SOCKS or HTTPS proxy server
+  command_template: redsocks {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: sidguesser
+  binary: sidguesser
+  category: web_application
+  risk: medium
+  description: Guesses sids against an Oracle database
+  command_template: sidguesser {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: skipfish
+  binary: skipfish
+  category: web_application
+  risk: medium
+  description: fully automated, active web application security reconnaissance tool
+  command_template: skipfish {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: sqldict
+  binary: sqldict
+  category: web_application
+  risk: medium
+  description: Dictionary attack tool for SQL Server
+  command_template: sqldict {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: sqlitebrowser
+  binary: sqlitebrowser
+  category: web_application
+  risk: medium
+  description: GUI editor for SQLite databases
+  command_template: sqlitebrowser {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: sqlmap
+  binary: sqlmap
+  category: web_application
+  risk: medium
+  description: automatic SQL injection tool
+  command_template: sqlmap {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - url
+  tags:
+  - web application
+  - kali
+- tool_id: sqlninja
+  binary: sqlninja
+  category: web_application
+  risk: medium
+  description: SQL server injection and takeover tool
+  command_template: sqlninja {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: sqlsus
+  binary: sqlsus
+  category: web_application
+  risk: medium
+  description: MySQL injection tool
+  command_template: sqlsus {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: sslsniff
+  binary: sslsniff
+  category: web_application
+  risk: medium
+  description: SSL/TLS man-in-the-middle attack tool
+  command_template: sslsniff {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: sslsplit
+  binary: sslsplit
+  category: web_application
+  risk: medium
+  description: transparent and scalable SSL/TLS interception
+  command_template: sslsplit {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: stunnel4
+  binary: stunnel4
+  category: web_application
+  risk: medium
+  description: Universal SSL tunnel for network daemons
+  command_template: stunnel4 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: tnscmd10g
+  binary: tnscmd10g
+  category: web_application
+  risk: medium
+  description: Tool to prod the oracle tnslsnr process
+  command_template: tnscmd10g {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: uniscan
+  binary: uniscan
+  category: web_application
+  risk: medium
+  description: LFI, RFI, and RCE vulnerability scanner
+  command_template: uniscan {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: wapiti
+  binary: wapiti
+  category: web_application
+  risk: medium
+  description: web application vulnerability scanner
+  command_template: wapiti {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - url
+  tags:
+  - web application
+  - kali
+- tool_id: watobo
+  binary: watobo
+  category: web_application
+  risk: medium
+  description: Semi-automated web application scanner
+  command_template: watobo {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: webacoo
+  binary: webacoo
+  category: web_application
+  risk: medium
+  description: Web backdoor cookie script kit
+  command_template: webacoo {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: webscarab
+  binary: webscarab
+  category: web_application
+  risk: medium
+  description: Web application review tool
+  command_template: webscarab {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: webshells
+  binary: webshells
+  category: web_application
+  risk: medium
+  description: Collection of webshells
+  command_template: webshells {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: weevely
+  binary: weevely
+  category: web_application
+  risk: medium
+  description: Stealth tiny web shell
+  command_template: weevely {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: wfuzz
+  binary: wfuzz
+  category: web_application
+  risk: medium
+  description: Web application bruteforcer
+  command_template: wfuzz {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: whatweb
+  binary: whatweb
+  category: web_application
+  risk: medium
+  description: Next generation web scanner
+  command_template: whatweb {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - url
+  tags:
+  - web application
+  - kali
+- tool_id: wireshark
+  binary: wireshark
+  category: web_application
+  risk: medium
+  description: network traffic analyzer - graphical interface
+  command_template: wireshark {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: wpscan
+  binary: wpscan
+  category: web_application
+  risk: medium
+  description: Black box WordPress vulnerability scanner
+  command_template: wpscan {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: xsser
+  binary: xsser
+  category: web_application
+  risk: medium
+  description: XSS testing framework
+  command_template: xsser {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: zaproxy
+  binary: zaproxy
+  category: web_application
+  risk: medium
+  description: Testing tool for finding vulnerabilities in web applications
+  command_template: zaproxy {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - web application
+  - kali
+- tool_id: mdbtools
+  binary: mdbtools
+  category: database_assessment
+  risk: medium
+  description: JET / MS Access database (MDB) tools
+  command_template: mdbtools {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - database assessment
+  - kali
+- tool_id: kali-tools-gpu
+  binary: kali-tools-gpu
+  category: password_attacks
+  risk: high
+  description: Kali's GPU tools
+  command_template: kali-tools-gpu {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: cewl
+  binary: cewl
+  category: password_attacks
+  risk: high
+  description: custom word list generator
+  command_template: cewl {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: chntpw
+  binary: chntpw
+  category: password_attacks
+  risk: high
+  description: NT SAM password recovery utility
+  command_template: chntpw {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: cmospwd
+  binary: cmospwd
+  category: password_attacks
+  risk: high
+  description: decrypt BIOS passwords from CMOS
+  command_template: cmospwd {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: crackle
+  binary: crackle
+  category: password_attacks
+  risk: high
+  description: Crack and decrypt BLE encryption
+  command_template: crackle {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: creddump7
+  binary: creddump7
+  category: password_attacks
+  risk: high
+  description: Python tool to extract credentials and secrets from Windows registry
+    hives
+  command_template: creddump7 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: crunch
+  binary: crunch
+  category: password_attacks
+  risk: high
+  description: tool for creating wordlist
+  command_template: crunch {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: fcrackzip
+  binary: fcrackzip
+  category: password_attacks
+  risk: high
+  description: password cracker for zip archives
+  command_template: fcrackzip {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: freerdp3-x11
+  binary: freerdp3-x11
+  category: password_attacks
+  risk: high
+  description: RDP client for Windows Terminal Services (X11 client)
+  command_template: freerdp3-x11 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: gpp-decrypt
+  binary: gpp-decrypt
+  category: password_attacks
+  risk: high
+  description: Group Policy Preferences decrypter
+  command_template: gpp-decrypt {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: hash-identifier
+  binary: hash-identifier
+  category: password_attacks
+  risk: high
+  description: Tool to identify hash types
+  command_template: hash-identifier {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: hashcat
+  binary: hashcat
+  category: password_attacks
+  risk: high
+  description: World's fastest and most advanced password recovery utility
+  command_template: hashcat {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: hashcat-utils
+  binary: hashcat-utils
+  category: password_attacks
+  risk: high
+  description: Set of small utilities for advanced password cracking
+  command_template: hashcat-utils {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: hashid
+  binary: hashid
+  category: password_attacks
+  risk: high
+  description: Identify the different types of hashes used to encrypt data
+  command_template: hashid {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: john
+  binary: john
+  category: password_attacks
+  risk: high
+  description: active password cracking tool
+  command_template: john {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: johnny
+  binary: johnny
+  category: password_attacks
+  risk: high
+  description: GUI for John the Ripper
+  command_template: johnny {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: maskprocessor
+  binary: maskprocessor
+  category: password_attacks
+  risk: high
+  description: high-performance word generator with a per-position configurable charset
+  command_template: maskprocessor {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: mimikatz
+  binary: mimikatz
+  category: password_attacks
+  risk: high
+  description: Uses admin rights on Windows to display passwords in plaintext
+  command_template: mimikatz {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: ophcrack
+  binary: ophcrack
+  category: password_attacks
+  risk: high
+  description: Microsoft Windows password cracker using rainbow tables (gui)
+  command_template: ophcrack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: ophcrack-cli
+  binary: ophcrack-cli
+  category: password_attacks
+  risk: high
+  description: Microsoft Windows password cracker using rainbow tables (cmdline)
+  command_template: ophcrack-cli {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: pack
+  binary: pack
+  category: password_attacks
+  risk: high
+  description: Password analysis and cracking kit
+  command_template: pack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: pack2
+  binary: pack2
+  category: password_attacks
+  risk: high
+  description: Password analysis and cracking kit 2
+  command_template: pack2 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: passing-the-hash
+  binary: passing-the-hash
+  category: password_attacks
+  risk: high
+  description: Patched tools to use password hashes as authentication input
+  command_template: passing-the-hash {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: pdfcrack
+  binary: pdfcrack
+  category: password_attacks
+  risk: high
+  description: PDF files password cracker
+  command_template: pdfcrack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: pipal
+  binary: pipal
+  category: password_attacks
+  risk: high
+  description: Statistical analysis on password dumps
+  command_template: pipal {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: polenum
+  binary: polenum
+  category: password_attacks
+  risk: high
+  description: Extracts the password policy from a Windows system
+  command_template: polenum {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: rainbowcrack
+  binary: rainbowcrack
+  category: password_attacks
+  risk: high
+  description: Rainbow table password cracker
+  command_template: rainbowcrack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: rarcrack
+  binary: rarcrack
+  category: password_attacks
+  risk: high
+  description: Password cracker for rar archives
+  command_template: rarcrack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: rcracki-mt
+  binary: rcracki-mt
+  category: password_attacks
+  risk: high
+  description: Version of rcrack that supports hybrid and indexed tables
+  command_template: rcracki-mt {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: rsmangler
+  binary: rsmangler
+  category: password_attacks
+  risk: high
+  description: Wordlist mangling tool
+  command_template: rsmangler {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: samdump2
+  binary: samdump2
+  category: password_attacks
+  risk: high
+  description: Dump Windows 2k/NT/XP password hashes
+  command_template: samdump2 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: seclists
+  binary: seclists
+  category: password_attacks
+  risk: high
+  description: Collection of multiple types of security lists
+  command_template: seclists {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: sipcrack
+  binary: sipcrack
+  category: password_attacks
+  risk: high
+  description: SIP login dumper/cracker
+  command_template: sipcrack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: statsprocessor
+  binary: statsprocessor
+  category: password_attacks
+  risk: high
+  description: word generator based on per-position Markov chains
+  command_template: statsprocessor {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: sucrack
+  binary: sucrack
+  category: password_attacks
+  risk: high
+  description: multithreaded su bruteforcer
+  command_template: sucrack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: thc-pptp-bruter
+  binary: thc-pptp-bruter
+  category: password_attacks
+  risk: high
+  description: THC PPTP Brute Force
+  command_template: thc-pptp-bruter {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: truecrack
+  binary: truecrack
+  category: password_attacks
+  risk: high
+  description: Bruteforce password cracker for TrueCrypt volumes
+  command_template: truecrack {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: wordlists
+  binary: wordlists
+  category: password_attacks
+  risk: high
+  description: Contains the rockyou wordlist
+  command_template: wordlists {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - password attacks
+  - kali
+- tool_id: kali-tools-802-11
+  binary: kali-tools-802-11
+  category: wireless_attacks
+  risk: medium
+  description: Kali's 802.11 attacks tools
+  command_template: kali-tools-802-11 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - wireless attacks
+  - kali
+- tool_id: kali-tools-bluetooth
+  binary: kali-tools-bluetooth
+  category: wireless_attacks
+  risk: medium
+  description: Kali's bluetooth attacks tools
+  command_template: kali-tools-bluetooth {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - wireless attacks
+  - kali
+- tool_id: kali-tools-rfid
+  binary: kali-tools-rfid
+  category: wireless_attacks
+  risk: medium
+  description: Kali's RFID tools
+  command_template: kali-tools-rfid {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - wireless attacks
+  - kali
+- tool_id: kali-tools-sdr
+  binary: kali-tools-sdr
+  category: wireless_attacks
+  risk: medium
+  description: Kali's SDR tools
+  command_template: kali-tools-sdr {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - wireless attacks
+  - kali
+- tool_id: rfcat
+  binary: rfcat
+  category: wireless_attacks
+  risk: medium
+  description: Swiss army knife of sub-GHz radio
+  command_template: rfcat {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - wireless attacks
+  - kali
+- tool_id: rfkill
+  binary: rfkill
+  category: wireless_attacks
+  risk: medium
+  description: tool for enabling and disabling wireless devices
+  command_template: rfkill {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - wireless attacks
+  - kali
+- tool_id: sakis3g
+  binary: sakis3g
+  category: wireless_attacks
+  risk: medium
+  description: Tool for establishing 3G connections
+  command_template: sakis3g {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - wireless attacks
+  - kali
+- tool_id: apktool
+  binary: apktool
+  category: reverse_engineering
+  risk: medium
+  description: tool for reverse engineering Android apk files
+  command_template: apktool {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: bytecode-viewer
+  binary: bytecode-viewer
+  category: reverse_engineering
+  risk: medium
+  description: Java 8+ Jar & Android APK Reverse Engineering Suite
+  command_template: bytecode-viewer {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: clang
+  binary: clang
+  category: reverse_engineering
+  risk: medium
+  description: C, C++ and Objective-C compiler (LLVM based), clang binary
+  command_template: clang {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: dex2jar
+  binary: dex2jar
+  category: reverse_engineering
+  risk: medium
+  description: Tools to work with android .dex and java .class files
+  command_template: dex2jar {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: edb-debugger
+  binary: edb-debugger
+  category: reverse_engineering
+  risk: medium
+  description: cross platform x86/x86-64 debugger
+  command_template: edb-debugger {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: jadx
+  binary: jadx
+  category: reverse_engineering
+  risk: medium
+  description: Dex to Java decompiler
+  command_template: jadx {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: javasnoop
+  binary: javasnoop
+  category: reverse_engineering
+  risk: medium
+  description: Intercept Java applications locally
+  command_template: javasnoop {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: jd-gui
+  binary: jd-gui
+  category: reverse_engineering
+  risk: medium
+  description: GUI Java .class decompiler
+  command_template: jd-gui {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: metasploit-framework
+  binary: metasploit-framework
+  category: reverse_engineering
+  risk: medium
+  description: Framework for exploit development and vulnerability research
+  command_template: metasploit-framework {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: ollydbg
+  binary: ollydbg
+  category: reverse_engineering
+  risk: medium
+  description: 32-bit assembler level analysing debugger
+  command_template: ollydbg {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: radare2
+  binary: radare2
+  category: reverse_engineering
+  risk: medium
+  description: free and advanced command line hexadecimal editor
+  command_template: radare2 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: rizin
+  binary: rizin
+  category: reverse_engineering
+  risk: medium
+  description: reverse engineering framework and command-line toolset
+  command_template: rizin {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: rizin-cutter
+  binary: rizin-cutter
+  category: reverse_engineering
+  risk: medium
+  description: reverse engineering platform powered by rizin
+  command_template: rizin-cutter {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: rz-ghidra
+  binary: rz-ghidra
+  category: reverse_engineering
+  risk: medium
+  description: ghidra decompiler and sleigh disassembler for rizin
+  command_template: rz-ghidra {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reverse engineering
+  - kali
+- tool_id: armitage
+  binary: armitage
+  category: exploitation_tools
+  risk: high
+  description: Cyber attack management for Metasploit
+  command_template: armitage {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - exploitation tools
+  - kali
+- tool_id: exploitdb
+  binary: exploitdb
+  category: exploitation_tools
+  risk: high
+  description: Searchable Exploit Database archive
+  command_template: exploitdb {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - exploitation tools
+  - kali
+- tool_id: msfpc
+  binary: msfpc
+  category: exploitation_tools
+  risk: high
+  description: MSFvenom Payload Creator (MSFPC)
+  command_template: msfpc {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - exploitation tools
+  - kali
+- tool_id: set
+  binary: set
+  category: exploitation_tools
+  risk: high
+  description: Social-Engineer Toolkit
+  command_template: set {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - exploitation tools
+  - kali
+- tool_id: shellnoob
+  binary: shellnoob
+  category: exploitation_tools
+  risk: high
+  description: Shellcode writing toolkit
+  command_template: shellnoob {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - exploitation tools
+  - kali
+- tool_id: termineter
+  binary: termineter
+  category: exploitation_tools
+  risk: high
+  description: Smart meter testing framework
+  command_template: termineter {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - exploitation tools
+  - kali
+- tool_id: veil
+  binary: veil
+  category: social_engineering
+  risk: medium
+  description: Generates payloads to bypass anti-virus solutions
+  command_template: veil {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - social engineering
+  - kali
+- tool_id: above
+  binary: above
+  category: sniffing_spoofing
+  risk: high
+  description: Network security sniffer for finding vulnerabilities in the network
+  command_template: above {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: bettercap
+  binary: bettercap
+  category: sniffing_spoofing
+  risk: high
+  description: Complete, modular, portable and easily extensible MITM framework
+  command_template: bettercap {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: darkstat
+  binary: darkstat
+  category: sniffing_spoofing
+  risk: high
+  description: network traffic analyzer
+  command_template: darkstat {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: dnschef
+  binary: dnschef
+  category: sniffing_spoofing
+  risk: high
+  description: DNS proxy for penetration testers
+  command_template: dnschef {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: driftnet
+  binary: driftnet
+  category: sniffing_spoofing
+  risk: high
+  description: picks out and displays images from network traffic
+  command_template: driftnet {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: dsniff
+  binary: dsniff
+  category: sniffing_spoofing
+  risk: high
+  description: Various tools to sniff network traffic for cleartext insecurities
+  command_template: dsniff {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: ettercap-text-only
+  binary: ettercap-text-only
+  category: sniffing_spoofing
+  risk: high
+  description: Ettercap console-mode executable
+  command_template: ettercap-text-only {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: fiked
+  binary: fiked
+  category: sniffing_spoofing
+  risk: high
+  description: Cisco VPN attack tool
+  command_template: fiked {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: hexinject
+  binary: hexinject
+  category: sniffing_spoofing
+  risk: high
+  description: Versatile packet injector and sniffer
+  command_template: hexinject {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: isr-evilgrade
+  binary: isr-evilgrade
+  category: sniffing_spoofing
+  risk: high
+  description: Evilgrade framework
+  command_template: isr-evilgrade {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: macchanger
+  binary: macchanger
+  category: sniffing_spoofing
+  risk: high
+  description: utility for manipulating the MAC address of network interfaces
+  command_template: macchanger {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: netsniff-ng
+  binary: netsniff-ng
+  category: sniffing_spoofing
+  risk: high
+  description: Linux network packet sniffer toolkit
+  command_template: netsniff-ng {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: rebind
+  binary: rebind
+  category: sniffing_spoofing
+  risk: high
+  description: DNS rebinding tool
+  command_template: rebind {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: responder
+  binary: responder
+  category: sniffing_spoofing
+  risk: high
+  description: LLMNR/NBT-NS/mDNS Poisoner
+  command_template: responder {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: sniffjoke
+  binary: sniffjoke
+  category: sniffing_spoofing
+  risk: high
+  description: Transparent TCP connection scrambler
+  command_template: sniffjoke {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: tcpflow
+  binary: tcpflow
+  category: sniffing_spoofing
+  risk: high
+  description: TCP flow recorder
+  command_template: tcpflow {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: tcpreplay
+  binary: tcpreplay
+  category: sniffing_spoofing
+  risk: high
+  description: Tool to replay saved tcpdump files at arbitrary speeds
+  command_template: tcpreplay {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: wifi-honey
+  binary: wifi-honey
+  category: sniffing_spoofing
+  risk: high
+  description: Wi-Fi honeypot
+  command_template: wifi-honey {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - sniffing spoofing
+  - kali
+- tool_id: cymothoa
+  binary: cymothoa
+  category: post_exploitation
+  risk: medium
+  description: Stealth backdooring tool
+  command_template: cymothoa {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: dbd
+  binary: dbd
+  category: post_exploitation
+  risk: medium
+  description: Netcat clone with encryption
+  command_template: dbd {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: dns2tcp
+  binary: dns2tcp
+  category: post_exploitation
+  risk: medium
+  description: TCP-over-DNS tunnel server and client
+  command_template: dns2tcp {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: exe2hexbat
+  binary: exe2hexbat
+  category: post_exploitation
+  risk: medium
+  description: Convert EXE to bat
+  command_template: exe2hexbat {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: iodine
+  binary: iodine
+  category: post_exploitation
+  risk: medium
+  description: tool for tunneling IPv4 data through a DNS server
+  command_template: iodine {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: miredo
+  binary: miredo
+  category: post_exploitation
+  risk: medium
+  description: Teredo IPv6 tunneling through NATs
+  command_template: miredo {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: powersploit
+  binary: powersploit
+  category: post_exploitation
+  risk: medium
+  description: PowerShell Post-Exploitation Framework
+  command_template: powersploit {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: ptunnel
+  binary: ptunnel
+  category: post_exploitation
+  risk: medium
+  description: Tunnel TCP connections over ICMP packets
+  command_template: ptunnel {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: pwnat
+  binary: pwnat
+  category: post_exploitation
+  risk: medium
+  description: NAT to NAT client-server communication
+  command_template: pwnat {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: sbd
+  binary: sbd
+  category: post_exploitation
+  risk: medium
+  description: Secure backdoor for Linux and Windows
+  command_template: sbd {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: shellter
+  binary: shellter
+  category: post_exploitation
+  risk: medium
+  description: Dynamic shellcode injection tool and dynamic PE infector
+  command_template: shellter {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: udptunnel
+  binary: udptunnel
+  category: post_exploitation
+  risk: medium
+  description: tunnel UDP packets over a TCP connection
+  command_template: udptunnel {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - post exploitation
+  - kali
+- tool_id: 7zip
+  binary: 7zip
+  category: forensics
+  risk: low
+  description: 7-Zip file archiver with a high compression ratio
+  command_template: 7zip {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: afflib-tools
+  binary: afflib-tools
+  category: forensics
+  risk: low
+  description: Advanced Forensics Format Library (utilities)
+  command_template: afflib-tools {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: autopsy
+  binary: autopsy
+  category: forensics
+  risk: low
+  description: graphical interface to SleuthKit
+  command_template: autopsy {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: binwalk
+  binary: binwalk
+  category: forensics
+  risk: low
+  description: tool library for analyzing binary blobs and executable code
+  command_template: binwalk {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: binwalk3
+  binary: binwalk3
+  category: forensics
+  risk: low
+  description: tool library for analyzing binary blobs and executable code
+  command_template: binwalk3 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: bulk-extractor
+  binary: bulk-extractor
+  category: forensics
+  risk: low
+  description: Extracts information without parsing filesystem
+  command_template: bulk-extractor {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: cabextract
+  binary: cabextract
+  category: forensics
+  risk: low
+  description: Microsoft Cabinet file unpacker
+  command_template: cabextract {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: chkrootkit
+  binary: chkrootkit
+  category: forensics
+  risk: low
+  description: rootkit detector
+  command_template: chkrootkit {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: dc3dd
+  binary: dc3dd
+  category: forensics
+  risk: low
+  description: patched version of GNU dd with forensic features
+  command_template: dc3dd {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: dcfldd
+  binary: dcfldd
+  category: forensics
+  risk: low
+  description: enhanced version of dd for forensics and security
+  command_template: dcfldd {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: ddrescue
+  binary: ddrescue
+  category: forensics
+  risk: low
+  description: data recovery and protection tool
+  command_template: ddrescue {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: dumpzilla
+  binary: dumpzilla
+  category: forensics
+  risk: low
+  description: Mozilla browser forensic tool
+  command_template: dumpzilla {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: ewf-tools
+  binary: ewf-tools
+  category: forensics
+  risk: low
+  description: collection of tools for reading and writing EWF files
+  command_template: ewf-tools {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: exifprobe
+  binary: exifprobe
+  category: forensics
+  risk: low
+  description: read metadata from digital pictures
+  command_template: exifprobe {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: exiv2
+  binary: exiv2
+  category: forensics
+  risk: low
+  description: EXIF/IPTC/XMP metadata manipulation tool
+  command_template: exiv2 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: ext3grep
+  binary: ext3grep
+  category: forensics
+  risk: low
+  description: tool to help recover deleted files on ext3 filesystems
+  command_template: ext3grep {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: ext4magic
+  binary: ext4magic
+  category: forensics
+  risk: low
+  description: recover deleted files from ext3 or ext4 partitions
+  command_template: ext4magic {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: extundelete
+  binary: extundelete
+  category: forensics
+  risk: low
+  description: utility to recover deleted files from ext3/ext4 partition
+  command_template: extundelete {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: firmware-mod-kit
+  binary: firmware-mod-kit
+  category: forensics
+  risk: low
+  description: Deconstruct and reconstruct firmware images
+  command_template: firmware-mod-kit {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: foremost
+  binary: foremost
+  category: forensics
+  risk: low
+  description: forensic program to recover lost files
+  command_template: foremost {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: forensic-artifacts
+  binary: forensic-artifacts
+  category: forensics
+  risk: low
+  description: knowledge base of forensic artifacts (data files)
+  command_template: forensic-artifacts {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: forensics-colorize
+  binary: forensics-colorize
+  category: forensics
+  risk: low
+  description: show differences between files using color graphics
+  command_template: forensics-colorize {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: galleta
+  binary: galleta
+  category: forensics
+  risk: low
+  description: Internet Explorer cookie forensic analysis tool
+  command_template: galleta {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: gdb
+  binary: gdb
+  category: forensics
+  risk: low
+  description: GNU Debugger
+  command_template: gdb {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: gpart
+  binary: gpart
+  category: forensics
+  risk: low
+  description: Guess PC disk partition table, find lost partitions
+  command_template: gpart {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: gparted
+  binary: gparted
+  category: forensics
+  risk: low
+  description: GNOME partition editor
+  command_template: gparted {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: grokevt
+  binary: grokevt
+  category: forensics
+  risk: low
+  description: scripts for reading Microsoft Windows event log files
+  command_template: grokevt {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: guymager
+  binary: guymager
+  category: forensics
+  risk: low
+  description: Forensic imaging tool based on Qt
+  command_template: guymager {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: hashdeep
+  binary: hashdeep
+  category: forensics
+  risk: low
+  description: recursively compute hashsums or piecewise hashings
+  command_template: hashdeep {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: inetsim
+  binary: inetsim
+  category: forensics
+  risk: low
+  description: Software suite for simulating common internet services
+  command_template: inetsim {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: lvm2
+  binary: lvm2
+  category: forensics
+  risk: low
+  description: Linux Logical Volume Manager
+  command_template: lvm2 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: mac-robber
+  binary: mac-robber
+  category: forensics
+  risk: low
+  description: collects data about allocated files in mounted filesystems
+  command_template: mac-robber {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: magicrescue
+  binary: magicrescue
+  category: forensics
+  risk: low
+  description: recover files by looking for magic bytes
+  command_template: magicrescue {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: <md5deep>
+  binary: <md5deep>
+  category: forensics
+  risk: low
+  description: Security tool
+  command_template: <md5deep> {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: memdump
+  binary: memdump
+  category: forensics
+  risk: low
+  description: utility to dump memory contents to standard output
+  command_template: memdump {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: metacam
+  binary: metacam
+  category: forensics
+  risk: low
+  description: extract EXIF information from digital camera files
+  command_template: metacam {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: missidentify
+  binary: missidentify
+  category: forensics
+  risk: low
+  description: find win32 applications
+  command_template: missidentify {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: myrescue
+  binary: myrescue
+  category: forensics
+  risk: low
+  description: rescue data from damaged disks
+  command_template: myrescue {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: nasm
+  binary: nasm
+  category: forensics
+  risk: low
+  description: General-purpose x86 assembler
+  command_template: nasm {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: nasty
+  binary: nasty
+  category: forensics
+  risk: low
+  description: tool which helps you to recover your GPG passphrase
+  command_template: nasty {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: parted
+  binary: parted
+  category: forensics
+  risk: low
+  description: disk partition manipulator
+  command_template: parted {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: pasco
+  binary: pasco
+  category: forensics
+  risk: low
+  description: Internet Explorer cache forensic analysis tool
+  command_template: pasco {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: pdf-parser
+  binary: pdf-parser
+  category: forensics
+  risk: low
+  description: Parses PDF files to identify fundamental elements
+  command_template: pdf-parser {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: pdfid
+  binary: pdfid
+  category: forensics
+  risk: low
+  description: Scans PDF files for certain PDF keywords
+  command_template: pdfid {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: plaso
+  binary: plaso
+  category: forensics
+  risk: low
+  description: super timeline all the things -- metapackage
+  command_template: plaso {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: pst-utils
+  binary: pst-utils
+  category: forensics
+  risk: low
+  description: tools for reading Microsoft Outlook PST files
+  command_template: pst-utils {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: readpe
+  binary: readpe
+  category: forensics
+  risk: low
+  description: command-line tools to manipulate Windows PE files
+  command_template: readpe {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: recoverdm
+  binary: recoverdm
+  category: forensics
+  risk: low
+  description: recover files on disks with damaged sectors
+  command_template: recoverdm {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: recoverjpeg
+  binary: recoverjpeg
+  category: forensics
+  risk: low
+  description: recover JFIF (JPEG) pictures and MOV movies
+  command_template: recoverjpeg {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: reglookup
+  binary: reglookup
+  category: forensics
+  risk: low
+  description: utility to analysis for Windows NT-based registry
+  command_template: reglookup {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: regripper
+  binary: regripper
+  category: forensics
+  risk: low
+  description: perform forensic analysis of registry hives
+  command_template: regripper {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: rephrase
+  binary: rephrase
+  category: forensics
+  risk: low
+  description: Specialized passphrase recovery tool for GnuPG
+  command_template: rephrase {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: rifiuti
+  binary: rifiuti
+  category: forensics
+  risk: low
+  description: MS Windows recycle bin analysis tool
+  command_template: rifiuti {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: rifiuti2
+  binary: rifiuti2
+  category: forensics
+  risk: low
+  description: replacement for rifiuti, a MS Windows recycle bin analysis tool
+  command_template: rifiuti2 {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: rkhunter
+  binary: rkhunter
+  category: forensics
+  risk: low
+  description: rootkit, backdoor, sniffer and exploit scanner
+  command_template: rkhunter {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: rsakeyfind
+  binary: rsakeyfind
+  category: forensics
+  risk: low
+  description: locates BER-encoded RSA private keys in memory images
+  command_template: rsakeyfind {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: safecopy
+  binary: safecopy
+  category: forensics
+  risk: low
+  description: data recovery tool for problematic or damaged media
+  command_template: safecopy {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: scalpel
+  binary: scalpel
+  category: forensics
+  risk: low
+  description: fast filesystem-independent file recovery
+  command_template: scalpel {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: scrounge-ntfs
+  binary: scrounge-ntfs
+  category: forensics
+  risk: low
+  description: Data recovery program for NTFS filesystems
+  command_template: scrounge-ntfs {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: sleuthkit
+  binary: sleuthkit
+  category: forensics
+  risk: low
+  description: tools for forensics analysis on volume and filesystem data
+  command_template: sleuthkit {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: ssdeep
+  binary: ssdeep
+  category: forensics
+  risk: low
+  description: recursive piecewise hashing tool
+  command_template: ssdeep {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: tcpdump
+  binary: tcpdump
+  category: forensics
+  risk: low
+  description: command-line network traffic analyzer
+  command_template: tcpdump {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: tcpick
+  binary: tcpick
+  category: forensics
+  risk: low
+  description: TCP stream sniffer and connection tracker
+  command_template: tcpick {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: undbx
+  binary: undbx
+  category: forensics
+  risk: low
+  description: tool to extract, recover and undelete e-mail messages from .dbx files
+  command_template: undbx {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: unhide
+  binary: unhide
+  category: forensics
+  risk: low
+  description: forensic tool to find hidden processes and ports
+  command_template: unhide {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: unar
+  binary: unar
+  category: forensics
+  risk: low
+  description: Unarchiver for a variety of file formats
+  command_template: unar {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: upx-ucl
+  binary: upx-ucl
+  category: forensics
+  risk: low
+  description: efficient live-compressor for executables
+  command_template: upx-ucl {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: vinetto
+  binary: vinetto
+  category: forensics
+  risk: low
+  description: forensics tool to examine Thumbs.db files
+  command_template: vinetto {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: wce
+  binary: wce
+  category: forensics
+  risk: low
+  description: Windows Credentials Editor
+  command_template: wce {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: winregfs
+  binary: winregfs
+  category: forensics
+  risk: low
+  description: Windows registry FUSE filesystem
+  command_template: winregfs {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: xmount
+  binary: xmount
+  category: forensics
+  risk: low
+  description: tool for crossmounting between disk image formats
+  command_template: xmount {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: xplico
+  binary: xplico
+  category: forensics
+  risk: low
+  description: Network Forensic Analysis Tool (NFAT)
+  command_template: xplico {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: yara
+  binary: yara
+  category: forensics
+  risk: low
+  description: Pattern matching swiss knife for malware researchers
+  command_template: yara {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - forensics
+  - kali
+- tool_id: dradis
+  binary: dradis
+  category: reporting_tools
+  risk: low
+  description: Collaboration tools for penetration testing
+  command_template: dradis {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reporting tools
+  - kali
+- tool_id: faraday
+  binary: faraday
+  category: reporting_tools
+  risk: low
+  description: Collaborative Penetration Test IDE
+  command_template: faraday {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reporting tools
+  - kali
+- tool_id: recordmydesktop
+  binary: recordmydesktop
+  category: reporting_tools
+  risk: low
+  description: Captures audio-video data of a Linux desktop session
+  command_template: recordmydesktop {args} {target}
+  default_args: --help
+  parser_type: plain_text
+  scope_requirements:
+  - target
+  tags:
+  - reporting tools
+  - kali
