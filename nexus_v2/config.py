@@ -65,7 +65,7 @@ def get_settings() -> Settings:
     base_dir = Path(__file__).resolve().parents[1]
     load_dotenv(dotenv_path=base_dir / ".env", override=False)
 
-    db_path = _as_path(os.getenv("NEXUS_V2_DATABASE_PATH"), base_dir / "data" / "nexus_v2.db")
+    db_path = _as_path(os.getenv("NEXUS_V2_DATABASE_PATH"), base_dir / ".runtime" / "data" / "nexus_v2.db")
     if not db_path.is_absolute():
         db_path = base_dir / db_path
 

@@ -150,7 +150,7 @@ async def api_deadcode_report(_principal=Depends(require_viewer)):
             "path": str(DEADCODE_REPORT_PATH),
             "report": {
                 "summary": "No deadcode report artifact found.",
-                "hint": "Generate reports/deadcode_report.json during CI and expose it here.",
+                "hint": "Generate .runtime/reports/deadcode_report.json during CI and expose it here.",
             },
         }
 

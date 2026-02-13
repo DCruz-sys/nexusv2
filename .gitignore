@@ -1,0 +1,17 @@
+# Runtime outputs (source-of-truth is .runtime/ only)
+.runtime/
+reports/
+data/*.db
+data/*.db-*
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local env/editor noise
+.venv/
+.env
+.DS_Store
+.vscode/

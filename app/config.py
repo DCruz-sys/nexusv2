@@ -96,13 +96,13 @@ CHAT_AUTO_ALLOWLIST_ENABLED = _as_bool("CHAT_AUTO_ALLOWLIST_ENABLED", False)
 CHAT_AUTO_ALLOWLIST_DOMAINS = _as_csv_set("CHAT_AUTO_ALLOWLIST_DOMAINS")
 
 # Database
-DATABASE_PATH = BASE_DIR / os.getenv("DATABASE_PATH", "data/nexus.db")
+DATABASE_PATH = BASE_DIR / os.getenv("DATABASE_PATH", ".runtime/data/nexus.db")
 SQLITE_BUSY_TIMEOUT_MS = int(os.getenv("SQLITE_BUSY_TIMEOUT_MS", "5000"))
 SQLITE_RETRY_ATTEMPTS = int(os.getenv("SQLITE_RETRY_ATTEMPTS", "3"))
 SQLITE_RETRY_BACKOFF_MS = int(os.getenv("SQLITE_RETRY_BACKOFF_MS", "120"))
 
 # Reports
-REPORTS_DIR = BASE_DIR / os.getenv("REPORTS_DIR", "reports")
+REPORTS_DIR = BASE_DIR / os.getenv("REPORTS_DIR", ".runtime/reports")
 REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
 # Tool execution
@@ -186,7 +186,7 @@ CRAWL_LOW_CONF_TTL_DAYS = int(os.getenv("CRAWL_LOW_CONF_TTL_DAYS", "14"))
 CRAWL_MEDIUM_CONF_TTL_DAYS = int(os.getenv("CRAWL_MEDIUM_CONF_TTL_DAYS", "60"))
 
 # System metadata
-DEADCODE_REPORT_PATH = BASE_DIR / os.getenv("DEADCODE_REPORT_PATH", "reports/deadcode_report.json")
+DEADCODE_REPORT_PATH = BASE_DIR / os.getenv("DEADCODE_REPORT_PATH", ".runtime/reports/deadcode_report.json")
 
 # NIM client resilience
 NIM_MAX_RETRIES = int(os.getenv("NIM_MAX_RETRIES", "3"))

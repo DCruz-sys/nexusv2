@@ -43,6 +43,6 @@ bash worker_v2.sh
 
 ## Notes
 
-- DB path defaults to `data/nexus_v2.db` (override with `NEXUS_V2_DATABASE_PATH`).
+- DB path defaults to `.runtime/data/nexus_v2.db` (override with `NEXUS_V2_DATABASE_PATH`).
 - Artifacts default to `artifacts_v2/` (override with `NEXUS_V2_ARTIFACTS_DIR`).
 
