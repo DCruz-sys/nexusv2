@@ -1,0 +1,10 @@
+name: whatweb
+binary: whatweb
+category: information_gathering
+risk_level: low
+hitl_default: false
+timeout_sec_default: 300
+args_template:
+  - "{binary}"
+  - "{target_url}"
+

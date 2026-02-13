@@ -1,0 +1,43 @@
+{
+  "report_id": "3675406c-2e3b-4244-a0f1-bb4b7c301dd5",
+  "scan_id": "ed912cad-b28f-4bf7-bcd1-6f84cc53cdfd",
+  "target": "http://scanme.nmap.org/",
+  "methodology": "owasp",
+  "status": "completed",
+  "severity_counts": {
+    "critical": 1,
+    "high": 0,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+  },
+  "generated_at": "2026-02-12T08:46:28.593021",
+  "results": [
+    {
+      "id": 278,
+      "scan_id": "ed912cad-b28f-4bf7-bcd1-6f84cc53cdfd",
+      "phase": "Quick Reconnaissance",
+      "tool_name": "whatweb",
+      "command": "whatweb  http://scanme.nmap.org/",
+      "output": "http://scanme.nmap.org/ [200 OK] Apache[2.4.7], Country[RESERVED][ZZ], Google-Analytics[Universal][UA-11009417-1], HTML5, HTTPServer[Ubuntu Linux][Apache/2.4.7 (Ubuntu)], IP[45.33.32.156], Script, Title[Go ahead and ScanMe!]",
+      "findings": "[\"**Vulnerability Assessment Findings**\\n\\nBased on the whatweb output, the following findings were identified:\\n\\n1. **Apache Version Disclosure**\\n\\t* Severity: Medium\\n\\t* OWASP WSTG Test Case: A9 - Security Misconfiguration (WSTG-CONF-01)\\n\\t* MITRE ATT&CK Technique: T1595 - Active Scanning\\n\\t* Description: The Apache version (2.4.7) is disclosed in the HTTP response header, potentially allowing an attacker to identify known vulnerabilities in the version.\\n\\t* Proof-of-Concept: An attacker could use this information to search for known vulnerabilities in Apache 2.4.7 and attempt to exploit them.\\n2. **Google-Analytics Tracking Code Disclosure**\\n\\t* Severity: Low\\n\\t* OWASP WSTG Test Case: A9 - Security Misconfiguration (WSTG-CONF-01)\\n\\t* MITRE ATT&CK Technique: T1595 - Active Scanning\\n\\t* Description: The Google-Analytics tracking code (UA-11009417-1) is disclosed in the HTML source code, potentially allowing an attacker to track user activity.\\n\\t* Proof-of-Concept: An attacker could use this information to analyze user behavior and potentially identify vulnerabilities in the tracking code.\\n3. **HTML5 Support**\\n\\t* Severity: Info\\n\\t* OWASP WSTG Test Case: N/A\\n\\t* MITRE ATT&CK Technique: N/A\\n\\t* Description: The website supports HTML5, which may introduce additional security risks if not properly implemented.\\n\\t* Proof-of-Concept: N/A\\n4. **HTTP Server Disclosure**\\n\\t* Severity: Medium\\n\\t* OWASP WSTG Test Case: A9 - Security Misconfiguration (WSTG-CONF-01)\\n\\t* MITRE ATT&CK Technique: T1595 - Active Scanning\\n\\t* Description: The HTTP server (Apache/2.4.7) and operating system (Ubuntu Linux) are disclosed in the HTTP response header, potentially allowing an attacker to identify known vulnerabilities.\\n\\t* Proof-of-Concept: An attacker could use this information to search for known vulnerabilities in Apache 2.4.7 and Ubuntu Linux and attempt to exploit them.\\n\\n**Recommended Follow-up Actions:**\\n\\n1. Verify the Apache version and ensure it is up-to-date with the latest security patches.\\n2. Review the Google-Analytics tracking code and ensure it is properly implemented and configured.\\n3. Analyze the HTML5 implementation and ensure it is secure and properly validated.\\n4. Consider disabling or configuring the HTTP server disclosure to prevent information leakage.\\n\\n**Remediation Suggestions:**\\n\\n1. Update Apache to the latest version and ensure all security patches are applied.\\n2. Review and configure the Google-Analytics tracking code to minimize data leakage.\\n3. Implement secure coding practices and validate user input to prevent HTML5-related vulnerabilities.\\n4. Configure the HTTP server to disable or limit information disclosure in the response headers.\"]",
+      "severity": "medium",
+      "status": "completed",
+      "started_at": "2026-02-12T08:44:09.542042",
+      "completed_at": "2026-02-12T08:44:09.542042"
+    },
+    {
+      "id": 279,
+      "scan_id": "ed912cad-b28f-4bf7-bcd1-6f84cc53cdfd",
+      "phase": "Quick Reconnaissance",
+      "tool_name": "nmap",
+      "command": "nmap -sV -sC --top-ports 100 -T4 scanme.nmap.org",
+      "output": "Starting Nmap 7.98 ( https://nmap.org ) at 2026-02-12 03:43 -0500\nNmap scan report for scanme.nmap.org (45.33.32.156)\nHost is up (0.14s latency).\nOther addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f\nNot shown: 74 closed tcp ports (reset)\nPORT      STATE    SERVICE        VERSION\n13/tcp    filtered daytime\n22/tcp    open     ssh            OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.13 (Ubuntu Linux; protocol 2.0)\n| ssh-hostkey:\n|   1024 ac:00:a0:1a:82:ff:cc:55:99:dc:67:2b:34:97:6b:75 (DSA)\n|   2048 20:3d:2d:44:62:2a:b0:5a:9d:b5:b3:05:14:c2:a6:b2 (RSA)\n|   256 96:02:bb:5e:57:54:1c:4e:45:2f:56:4c:4a:24:b2:57 (ECDSA)\n|_  256 33:fa:91:0f:e0:e1:7b:1f:6d:05:a2:b0:f1:54:41:56 (ED25519)\n79/tcp    filtered finger\n80/tcp    open     http           Apache httpd 2.4.7 ((Ubuntu))\n|_http-title: Go ahead and ScanMe!\n|_http-favicon: Nmap Project\n|_http-server-header: Apache/2.4.7 (Ubuntu)\n106/tcp   filtered pop3pw\n119/tcp   filtered nntp\n179/tcp   filtered bgp\n389/tcp   filtered ldap\n427/tcp   filtered svrloc\n444/tcp   filtered snpp\n514/tcp   filtered shell\n544/tcp   filtered kshell\n2000/tcp  filtered cisco-sccp\n3128/tcp  filtered squid-http\n3986/tcp  filtered mapper-ws_ethd\n4899/tcp  filtered radmin\n5101/tcp  filtered admdog\n5357/tcp  filtered wsdapi\n5631/tcp  filtered pcanywheredata\n6000/tcp  filtered X11\n8000/tcp  filtered http-alt\n8443/tcp  filtered https-alt\n32768/tcp filtered filenet-tms\n49152/tcp filtered unknown\n49154/tcp filtered unknown\n49156/tcp filtered unknown\nService Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel\n\nService detection performed. Please report any incorrect results at https://nmap.org/submit/ .\nNmap done: 1 IP address (1 host up) scanned in 36.13 seconds",
+      "findings": "[\"**Vulnerability Assessment Report**\\n\\n**Target:** http://scanme.nmap.org/\\n**Scanner:** Nmap 7.98\\n\\n**Vulnerabilities Found:**\\n\\n1. **OpenSSH 6.6.1p1 vulnerability (Critical)**\\n\\t* Description: OpenSSH 6.6.1p1 has a known vulnerability that allows remote attackers to execute arbitrary code.\\n\\t* OWASP WSTG Test Case: A5: Authentication and Session Management\\n\\t* MITRE ATT&CK Technique: T1210: Exploitation of Remote Services\\n\\t* Recommended Follow-up Action: Update OpenSSH to the latest version.\\n\\t* Remediation Suggestion: Upgrade OpenSSH to a version with security patches, such as OpenSSH 7.0 or later.\\n2. **Apache httpd 2.4.7 vulnerability (High)**\\n\\t* Description: Apache httpd 2.4.7 has a known vulnerability that allows remote attackers to execute arbitrary code.\\n\\t* OWASP WSTG Test Case: A6: Security Misconfiguration\\n\\t* MITRE ATT&CK Technique: T1210: Exploitation of Remote Services\\n\\t* Recommended Follow-up Action: Update Apache to the latest version.\\n\\t* Remediation Suggestion: Upgrade Apache to a version with security patches, such as Apache 2.4.18 or later.\\n3. **No vulnerabilities found in the http-title, http-favicon, and http-server-header (Info)**\\n\\t* Description: The http-title, http-favicon, and http-server-header are not vulnerable.\\n\\t* OWASP WSTG Test Case: N/A\\n\\t* MITRE ATT&CK Technique: N/A\\n\\t* Recommended Follow-up Action: None\\n\\t* Remediation Suggestion: N/A\\n4. **No other vulnerabilities found (Info)**\\n\\n**OWASP WSTG Test Case Mapping:**\\n\\n* A5: Authentication and Session Management (OpenSSH 6.6.1p1 vulnerability)\\n* A6: Security Misconfiguration (Apache httpd 2.4.7 vulnerability)\\n* N/A (http-title, http-favicon, and http-server-header)\\n\\n**MITRE ATT&CK Technique Mapping:**\\n\\n* T1210: Exploitation of Remote Services (OpenSSH 6.6.1p1 vulnerability)\\n* T1210: Exploitation of Remote Services (Apache httpd 2.4.7 vulnerability)\\n* N/A (http-title, http-favicon, and http-server-header)\\n\\n**Recommended Follow-up Actions:**\\n\\n* Update OpenSSH to the latest version.\\n* Update Apache to the latest version.\\n\\n**Remediation Suggestions:**\\n\\n* Upgrade OpenSSH to a version with security patches, such as OpenSSH 7.0 or later.\\n* Upgrade Apache to a version with security patches, such as Apache 2.4.18 or later.\"]",
+      "severity": "critical",
+      "status": "completed",
+      "started_at": "2026-02-12T08:44:27.829297",
+      "completed_at": "2026-02-12T08:44:27.829297"
+    }
+  ]
+}

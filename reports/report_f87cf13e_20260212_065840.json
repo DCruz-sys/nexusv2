@@ -1,0 +1,16 @@
+{
+  "report_id": "ee4124e6-de88-429e-8412-14d63ecd4a60",
+  "scan_id": "f87cf13e-f7f3-46bf-a71f-7355822dd7e3",
+  "target": "https://example.com",
+  "methodology": "owasp",
+  "status": "stopping",
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "info": 0
+  },
+  "generated_at": "2026-02-12T06:58:40.770152",
+  "results": []
+}

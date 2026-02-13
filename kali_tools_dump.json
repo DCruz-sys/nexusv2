@@ -1,0 +1,3830 @@
+[
+  {
+    "name": "0trace",
+    "category": "information_gathering",
+    "description": "traceroute tool that can run within an existing TCP connection",
+    "command_template": "0trace {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "iputils-arping",
+    "category": "information_gathering",
+    "description": "Tool to send ICMP echo requests to an ARP address",
+    "command_template": "iputils-arping {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "braa",
+    "category": "information_gathering",
+    "description": "Mass SNMP scanner",
+    "command_template": "braa {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "dmitry",
+    "category": "information_gathering",
+    "description": "Deepmagic Information Gathering Tool",
+    "command_template": "dmitry {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "dnsenum",
+    "category": "information_gathering",
+    "description": "tool to enumerate domain DNS information",
+    "command_template": "dnsenum {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "dnsmap",
+    "category": "information_gathering",
+    "description": "DNS domain name brute forcing tool",
+    "command_template": "dnsmap {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "dnsrecon",
+    "category": "information_gathering",
+    "description": "Powerful DNS enumeration script",
+    "command_template": "dnsrecon {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "dnstracer",
+    "category": "information_gathering",
+    "description": "trace DNS queries to the source",
+    "command_template": "dnstracer {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "dnswalk",
+    "category": "information_gathering",
+    "description": "Checks dns zone information using nameserver lookups",
+    "command_template": "dnswalk {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "enum4linux",
+    "category": "information_gathering",
+    "description": "Enumerates info from Windows and Samba systems",
+    "command_template": "enum4linux {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "fierce",
+    "category": "information_gathering",
+    "description": "Domain DNS scanner",
+    "command_template": "fierce {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "firewalk",
+    "category": "information_gathering",
+    "description": "active reconnaissance network security tool",
+    "command_template": "firewalk {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "fping",
+    "category": "information_gathering",
+    "description": "sends ICMP ECHO_REQUEST packets to network hosts",
+    "command_template": "fping {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "fragrouter",
+    "category": "information_gathering",
+    "description": "IDS evasion toolkit",
+    "command_template": "fragrouter {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "ftester",
+    "category": "information_gathering",
+    "description": "Tool for testing firewalls and Intrusion Detection System (IDS)",
+    "command_template": "ftester {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "hping3",
+    "category": "information_gathering",
+    "description": "Active Network Smashing Tool",
+    "command_template": "hping3 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "ike-scan",
+    "category": "information_gathering",
+    "description": "discover and fingerprint IKE hosts (IPsec VPN Servers)",
+    "command_template": "ike-scan {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "intrace",
+    "category": "information_gathering",
+    "description": "Traceroute-like application piggybacking on existing TCP connections",
+    "command_template": "intrace {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "irpas",
+    "category": "information_gathering",
+    "description": "Internetwork Routing Protocol Attack Suite",
+    "command_template": "irpas {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "lbd",
+    "category": "information_gathering",
+    "description": "Load balancer detector",
+    "command_template": "lbd {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "legion",
+    "category": "information_gathering",
+    "description": "semi-automated network penetration testing tool",
+    "command_template": "legion {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "maltego",
+    "category": "information_gathering",
+    "description": "Open source intelligence and forensics application",
+    "command_template": "maltego {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "masscan",
+    "category": "information_gathering",
+    "description": "TCP port scanner",
+    "command_template": "masscan {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "metagoofil",
+    "category": "information_gathering",
+    "description": "Tool designed for extracting metadata of public documents",
+    "command_template": "metagoofil {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "nbtscan",
+    "category": "information_gathering",
+    "description": "scan networks searching for NetBIOS information",
+    "command_template": "nbtscan {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "ncat",
+    "category": "information_gathering",
+    "description": "NMAP netcat reimplementation",
+    "command_template": "ncat {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "netdiscover",
+    "category": "information_gathering",
+    "description": "active/passive network address scanner using ARP requests",
+    "command_template": "netdiscover {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "netmask",
+    "category": "information_gathering",
+    "description": "helps determine network masks",
+    "command_template": "netmask {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "nmap",
+    "category": "information_gathering",
+    "description": "The Network Mapper",
+    "command_template": "nmap {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "onesixtyone",
+    "category": "information_gathering",
+    "description": "fast and simple SNMP scanner",
+    "command_template": "onesixtyone {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "p0f",
+    "category": "information_gathering",
+    "description": "Passive OS fingerprinting tool",
+    "command_template": "p0f {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "qsslcaudit",
+    "category": "information_gathering",
+    "description": "test SSL/TLS clients how secure they are",
+    "command_template": "qsslcaudit {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "recon-ng",
+    "category": "information_gathering",
+    "description": "Web Reconnaissance framework written in Python",
+    "command_template": "recon-ng {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "smbmap",
+    "category": "information_gathering",
+    "description": "handy SMB enumeration tool",
+    "command_template": "smbmap {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "smtp-user-enum",
+    "category": "information_gathering",
+    "description": "Username guessing tool for the SMTP service",
+    "command_template": "smtp-user-enum {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "snmpcheck",
+    "category": "information_gathering",
+    "description": "SNMP service enumeration tool",
+    "command_template": "snmpcheck {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "ssldump",
+    "category": "information_gathering",
+    "description": "SSLv3/TLS network protocol analyzer",
+    "command_template": "ssldump {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "sslh",
+    "category": "information_gathering",
+    "description": "Applicative protocol multiplexer",
+    "command_template": "sslh {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "sslscan",
+    "category": "information_gathering",
+    "description": "Tests SSL/TLS enabled services to discover supported cipher suites",
+    "command_template": "sslscan {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "sslyze",
+    "category": "information_gathering",
+    "description": "Fast and full-featured SSL scanner",
+    "command_template": "sslyze {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "swaks",
+    "category": "information_gathering",
+    "description": "SMTP command-line test tool",
+    "command_template": "swaks {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "thc-ipv6",
+    "category": "information_gathering",
+    "description": "The Hacker Choice's IPv6 Attack Toolkit",
+    "command_template": "thc-ipv6 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "theharvester",
+    "category": "information_gathering",
+    "description": "tool for gathering e-mail accounts and subdomain names from public sources",
+    "command_template": "theharvester {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "tlssled",
+    "category": "information_gathering",
+    "description": "Evaluates the security of a target SSL/TLS (HTTPS) server",
+    "command_template": "tlssled {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "twofi",
+    "category": "information_gathering",
+    "description": "Twitter words of interest",
+    "command_template": "twofi {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "unicornscan",
+    "category": "information_gathering",
+    "description": "Userland distributed TCP/IP stack",
+    "command_template": "unicornscan {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "urlcrazy",
+    "category": "information_gathering",
+    "description": "Domain typo generator",
+    "command_template": "urlcrazy {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "wafw00f",
+    "category": "information_gathering",
+    "description": "identify and fingerprint Web Application Firewall products",
+    "command_template": "wafw00f {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "zenmap",
+    "category": "information_gathering",
+    "description": "The Network Mapper Front End",
+    "command_template": "zenmap {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "information gathering",
+      "kali"
+    ]
+  },
+  {
+    "name": "afl++",
+    "category": "vulnerability_analysis",
+    "description": "instrumentation-driven fuzzer for binary formats",
+    "command_template": "afl++ {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "bed",
+    "category": "vulnerability_analysis",
+    "description": "A network protocol fuzzer",
+    "command_template": "bed {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "cisco-auditing-tool",
+    "category": "vulnerability_analysis",
+    "description": "Scans Cisco routers for vulnerabilities",
+    "command_template": "cisco-auditing-tool {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "cisco-global-exploiter",
+    "category": "vulnerability_analysis",
+    "description": "Simple and fast Cisco exploitation tool",
+    "command_template": "cisco-global-exploiter {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "cisco-ocs",
+    "category": "vulnerability_analysis",
+    "description": "Mass Cisco scanner",
+    "command_template": "cisco-ocs {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "cisco-torch",
+    "category": "vulnerability_analysis",
+    "description": "Cisco device scanner",
+    "command_template": "cisco-torch {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "copy-router-config",
+    "category": "vulnerability_analysis",
+    "description": "Copies Cisco configs via SNMP",
+    "command_template": "copy-router-config {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "dhcpig",
+    "category": "vulnerability_analysis",
+    "description": "DHCP exhaustion script using scapy network library",
+    "command_template": "dhcpig {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "enumiax",
+    "category": "vulnerability_analysis",
+    "description": "IAX protocol username enumerator",
+    "command_template": "enumiax {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "gvm",
+    "category": "vulnerability_analysis",
+    "description": "remote network security auditor - metapackage and useful scripts",
+    "command_template": "gvm {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "iaxflood",
+    "category": "vulnerability_analysis",
+    "description": "VoIP flooder tool",
+    "command_template": "iaxflood {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "inviteflood",
+    "category": "vulnerability_analysis",
+    "description": "SIP/SDP INVITE message flooding over UDP/IP",
+    "command_template": "inviteflood {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "lynis",
+    "category": "vulnerability_analysis",
+    "description": "security auditing tool for Unix based systems",
+    "command_template": "lynis {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "nikto",
+    "category": "vulnerability_analysis",
+    "description": "web server security scanner",
+    "command_template": "nikto {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "ohrwurm",
+    "category": "vulnerability_analysis",
+    "description": "RTP fuzzer",
+    "command_template": "ohrwurm {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "peass",
+    "category": "vulnerability_analysis",
+    "description": "Privilege Escalation Awesome Scripts SUITE",
+    "command_template": "peass {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "protos-sip",
+    "category": "vulnerability_analysis",
+    "description": "SIP test suite",
+    "command_template": "protos-sip {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "rtpbreak",
+    "category": "vulnerability_analysis",
+    "description": "Detects, reconstructs, and analyzes RTP sessions",
+    "command_template": "rtpbreak {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "rtpflood",
+    "category": "vulnerability_analysis",
+    "description": "Tool to flood any RTP device",
+    "command_template": "rtpflood {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "rtpinsertsound",
+    "category": "vulnerability_analysis",
+    "description": "Inserts audio into a specified stream",
+    "command_template": "rtpinsertsound {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "rtpmixsound",
+    "category": "vulnerability_analysis",
+    "description": "Mixes pre-recorded audio in real-time",
+    "command_template": "rtpmixsound {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "sctpscan",
+    "category": "vulnerability_analysis",
+    "description": "SCTP network scanner for discovery and security",
+    "command_template": "sctpscan {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "sfuzz",
+    "category": "vulnerability_analysis",
+    "description": "Black Box testing utilities",
+    "command_template": "sfuzz {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "siege",
+    "category": "vulnerability_analysis",
+    "description": "HTTP regression testing and benchmarking utility",
+    "command_template": "siege {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "siparmyknife",
+    "category": "vulnerability_analysis",
+    "description": "SIP fuzzing tool",
+    "command_template": "siparmyknife {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "sipp",
+    "category": "vulnerability_analysis",
+    "description": "Traffic generator for the SIP protocol",
+    "command_template": "sipp {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "sipsak",
+    "category": "vulnerability_analysis",
+    "description": "SIP Swiss army knife",
+    "command_template": "sipsak {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "sipvicious",
+    "category": "vulnerability_analysis",
+    "description": "tools to audit SIP based VoIP systems",
+    "command_template": "sipvicious {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "slowhttptest",
+    "category": "vulnerability_analysis",
+    "description": "application layer Denial of Service attacks simulation tool",
+    "command_template": "slowhttptest {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "spike",
+    "category": "vulnerability_analysis",
+    "description": "Network protocol fuzzer",
+    "command_template": "spike {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "t50",
+    "category": "vulnerability_analysis",
+    "description": "Multi-protocol packet injector tool",
+    "command_template": "t50 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "thc-ssl-dos",
+    "category": "vulnerability_analysis",
+    "description": "Stress tester for the SSL handshake",
+    "command_template": "thc-ssl-dos {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "unix-privesc-check",
+    "category": "vulnerability_analysis",
+    "description": "Script to check for simple privilege escalation vectors",
+    "command_template": "unix-privesc-check {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "voiphopper",
+    "category": "vulnerability_analysis",
+    "description": "Runs a VLAN hop security test",
+    "command_template": "voiphopper {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "yersinia",
+    "category": "vulnerability_analysis",
+    "description": "Network vulnerabilities check software",
+    "command_template": "yersinia {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "vulnerability analysis",
+      "kali"
+    ]
+  },
+  {
+    "name": "apache-users",
+    "category": "web_application",
+    "description": "Enumerate usernames on systems with Apache UserDir module",
+    "command_template": "apache-users {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "apache2",
+    "category": "web_application",
+    "description": "Apache HTTP Server",
+    "command_template": "apache2 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "beef-xss",
+    "category": "web_application",
+    "description": "Browser Exploitation Framework (BeEF)",
+    "command_template": "beef-xss {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "burpsuite",
+    "category": "web_application",
+    "description": "platform for security testing of web applications",
+    "command_template": "burpsuite {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "cadaver",
+    "category": "web_application",
+    "description": "command-line WebDAV client",
+    "command_template": "cadaver {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "commix",
+    "category": "web_application",
+    "description": "Automated All-in-One OS Command Injection and Exploitation Tool",
+    "command_template": "commix {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "cutycapt",
+    "category": "web_application",
+    "description": "utility to capture WebKit's rendering of a web page",
+    "command_template": "cutycapt {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "davtest",
+    "category": "web_application",
+    "description": "Testing tool for WebDAV servers",
+    "command_template": "davtest {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "default-mysql-server",
+    "category": "web_application",
+    "description": "MySQL database server binaries and system database setup (metapackage)",
+    "command_template": "default-mysql-server {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "dirb",
+    "category": "web_application",
+    "description": "URL bruteforcing tool",
+    "command_template": "dirb {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "dirbuster",
+    "category": "web_application",
+    "description": "Web server directory brute-forcer",
+    "command_template": "dirbuster {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "dotdotpwn",
+    "category": "web_application",
+    "description": "Directory Traversal Fuzzer.",
+    "command_template": "dotdotpwn {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "eyewitness",
+    "category": "web_application",
+    "description": "Rapid web application triage tool",
+    "command_template": "eyewitness {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "ferret-sidejack",
+    "category": "web_application",
+    "description": "Monitors data and extracts interesting data",
+    "command_template": "ferret-sidejack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "hakrawler",
+    "category": "web_application",
+    "description": "Web crawler designed for easy, quick discovery of endpoints and assets",
+    "command_template": "hakrawler {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "hamster-sidejack",
+    "category": "web_application",
+    "description": "Sidejacking tool",
+    "command_template": "hamster-sidejack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "heartleech",
+    "category": "web_application",
+    "description": "Scanner detecting systems vulnerable to the heartbleed OpenSSL bug",
+    "command_template": "heartleech {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "httprint",
+    "category": "web_application",
+    "description": "Web server fingerprinting tool",
+    "command_template": "httprint {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "httrack",
+    "category": "web_application",
+    "description": "Copy websites to your computer (Offline browser)",
+    "command_template": "httrack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "hydra",
+    "category": "web_application",
+    "description": "very fast network logon cracker",
+    "command_template": "hydra {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "jboss-autopwn",
+    "category": "web_application",
+    "description": "JBoss script for obtaining remote shell access",
+    "command_template": "jboss-autopwn {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "joomscan",
+    "category": "web_application",
+    "description": "OWASP Joomla Vulnerability Scanner Project",
+    "command_template": "joomscan {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "jsql-injection",
+    "category": "web_application",
+    "description": "Java tool for automatic database injection",
+    "command_template": "jsql-injection {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "laudanum",
+    "category": "web_application",
+    "description": "Collection of injectable web files",
+    "command_template": "laudanum {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "medusa",
+    "category": "web_application",
+    "description": "fast, parallel, modular, login brute-forcer for network services",
+    "command_template": "medusa {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "mitmproxy",
+    "category": "web_application",
+    "description": "SSL-capable man-in-the-middle HTTP proxy",
+    "command_template": "mitmproxy {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "ncrack",
+    "category": "web_application",
+    "description": "High-speed network authentication cracking tool",
+    "command_template": "ncrack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "nishang",
+    "category": "web_application",
+    "description": "Collection of PowerShell scripts and payloads",
+    "command_template": "nishang {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "oscanner",
+    "category": "web_application",
+    "description": "Oracle assessment framework",
+    "command_template": "oscanner {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "owasp-mantra-ff",
+    "category": "web_application",
+    "description": "Web application security testing framework built on top of Firefox",
+    "command_template": "owasp-mantra-ff {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "padbuster",
+    "category": "web_application",
+    "description": "Script for performing Padding Oracle attacks",
+    "command_template": "padbuster {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "paros",
+    "category": "web_application",
+    "description": "Web application proxy",
+    "command_template": "paros {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "patator",
+    "category": "web_application",
+    "description": "Multi-purpose brute-forcer",
+    "command_template": "patator {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "php",
+    "category": "web_application",
+    "description": "server-side, HTML-embedded scripting language (default)",
+    "command_template": "php {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "php-mysql",
+    "category": "web_application",
+    "description": "MySQL module for PHP [default]",
+    "command_template": "php-mysql {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "proxychains4",
+    "category": "web_application",
+    "description": "redirect connections through socks/http proxies (proxychains-ng)",
+    "command_template": "proxychains4 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "proxytunnel",
+    "category": "web_application",
+    "description": "Help SSH and other protocols through HTTP(S) proxies",
+    "command_template": "proxytunnel {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "redsocks",
+    "category": "web_application",
+    "description": "arbitrary TCP connection redirector to a SOCKS or HTTPS proxy server",
+    "command_template": "redsocks {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "sidguesser",
+    "category": "web_application",
+    "description": "Guesses sids against an Oracle database",
+    "command_template": "sidguesser {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "skipfish",
+    "category": "web_application",
+    "description": "fully automated, active web application security reconnaissance tool",
+    "command_template": "skipfish {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "sqldict",
+    "category": "web_application",
+    "description": "Dictionary attack tool for SQL Server",
+    "command_template": "sqldict {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "sqlitebrowser",
+    "category": "web_application",
+    "description": "GUI editor for SQLite databases",
+    "command_template": "sqlitebrowser {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "sqlmap",
+    "category": "web_application",
+    "description": "automatic SQL injection tool",
+    "command_template": "sqlmap {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "sqlninja",
+    "category": "web_application",
+    "description": "SQL server injection and takeover tool",
+    "command_template": "sqlninja {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "sqlsus",
+    "category": "web_application",
+    "description": "MySQL injection tool",
+    "command_template": "sqlsus {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "sslsniff",
+    "category": "web_application",
+    "description": "SSL/TLS man-in-the-middle attack tool",
+    "command_template": "sslsniff {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "sslsplit",
+    "category": "web_application",
+    "description": "transparent and scalable SSL/TLS interception",
+    "command_template": "sslsplit {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "stunnel4",
+    "category": "web_application",
+    "description": "Universal SSL tunnel for network daemons",
+    "command_template": "stunnel4 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "tnscmd10g",
+    "category": "web_application",
+    "description": "Tool to prod the oracle tnslsnr process",
+    "command_template": "tnscmd10g {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "uniscan",
+    "category": "web_application",
+    "description": "LFI, RFI, and RCE vulnerability scanner",
+    "command_template": "uniscan {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "wapiti",
+    "category": "web_application",
+    "description": "web application vulnerability scanner",
+    "command_template": "wapiti {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "watobo",
+    "category": "web_application",
+    "description": "Semi-automated web application scanner",
+    "command_template": "watobo {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "webacoo",
+    "category": "web_application",
+    "description": "Web backdoor cookie script kit",
+    "command_template": "webacoo {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "webscarab",
+    "category": "web_application",
+    "description": "Web application review tool",
+    "command_template": "webscarab {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "webshells",
+    "category": "web_application",
+    "description": "Collection of webshells",
+    "command_template": "webshells {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "weevely",
+    "category": "web_application",
+    "description": "Stealth tiny web shell",
+    "command_template": "weevely {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "wfuzz",
+    "category": "web_application",
+    "description": "Web application bruteforcer",
+    "command_template": "wfuzz {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "whatweb",
+    "category": "web_application",
+    "description": "Next generation web scanner",
+    "command_template": "whatweb {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "wireshark",
+    "category": "web_application",
+    "description": "network traffic analyzer - graphical interface",
+    "command_template": "wireshark {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "wpscan",
+    "category": "web_application",
+    "description": "Black box WordPress vulnerability scanner",
+    "command_template": "wpscan {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "xsser",
+    "category": "web_application",
+    "description": "XSS testing framework",
+    "command_template": "xsser {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "zaproxy",
+    "category": "web_application",
+    "description": "Testing tool for finding vulnerabilities in web applications",
+    "command_template": "zaproxy {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "web application",
+      "kali"
+    ]
+  },
+  {
+    "name": "mdbtools",
+    "category": "database_assessment",
+    "description": "JET / MS Access database (MDB) tools",
+    "command_template": "mdbtools {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "database assessment",
+      "kali"
+    ]
+  },
+  {
+    "name": "kali-tools-gpu",
+    "category": "password_attacks",
+    "description": "Kali's GPU tools",
+    "command_template": "kali-tools-gpu {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "cewl",
+    "category": "password_attacks",
+    "description": "custom word list generator",
+    "command_template": "cewl {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "chntpw",
+    "category": "password_attacks",
+    "description": "NT SAM password recovery utility",
+    "command_template": "chntpw {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "cmospwd",
+    "category": "password_attacks",
+    "description": "decrypt BIOS passwords from CMOS",
+    "command_template": "cmospwd {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "crackle",
+    "category": "password_attacks",
+    "description": "Crack and decrypt BLE encryption",
+    "command_template": "crackle {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "creddump7",
+    "category": "password_attacks",
+    "description": "Python tool to extract credentials and secrets from Windows registry hives",
+    "command_template": "creddump7 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "crunch",
+    "category": "password_attacks",
+    "description": "tool for creating wordlist",
+    "command_template": "crunch {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "fcrackzip",
+    "category": "password_attacks",
+    "description": "password cracker for zip archives",
+    "command_template": "fcrackzip {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "freerdp3-x11",
+    "category": "password_attacks",
+    "description": "RDP client for Windows Terminal Services (X11 client)",
+    "command_template": "freerdp3-x11 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "gpp-decrypt",
+    "category": "password_attacks",
+    "description": "Group Policy Preferences decrypter",
+    "command_template": "gpp-decrypt {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "hash-identifier",
+    "category": "password_attacks",
+    "description": "Tool to identify hash types",
+    "command_template": "hash-identifier {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "hashcat",
+    "category": "password_attacks",
+    "description": "World's fastest and most advanced password recovery utility",
+    "command_template": "hashcat {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "hashcat-utils",
+    "category": "password_attacks",
+    "description": "Set of small utilities for advanced password cracking",
+    "command_template": "hashcat-utils {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "hashid",
+    "category": "password_attacks",
+    "description": "Identify the different types of hashes used to encrypt data",
+    "command_template": "hashid {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "john",
+    "category": "password_attacks",
+    "description": "active password cracking tool",
+    "command_template": "john {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "johnny",
+    "category": "password_attacks",
+    "description": "GUI for John the Ripper",
+    "command_template": "johnny {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "maskprocessor",
+    "category": "password_attacks",
+    "description": "high-performance word generator with a per-position configurable charset",
+    "command_template": "maskprocessor {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "mimikatz",
+    "category": "password_attacks",
+    "description": "Uses admin rights on Windows to display passwords in plaintext",
+    "command_template": "mimikatz {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "ophcrack",
+    "category": "password_attacks",
+    "description": "Microsoft Windows password cracker using rainbow tables (gui)",
+    "command_template": "ophcrack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "ophcrack-cli",
+    "category": "password_attacks",
+    "description": "Microsoft Windows password cracker using rainbow tables (cmdline)",
+    "command_template": "ophcrack-cli {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "pack",
+    "category": "password_attacks",
+    "description": "Password analysis and cracking kit",
+    "command_template": "pack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "pack2",
+    "category": "password_attacks",
+    "description": "Password analysis and cracking kit 2",
+    "command_template": "pack2 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "passing-the-hash",
+    "category": "password_attacks",
+    "description": "Patched tools to use password hashes as authentication input",
+    "command_template": "passing-the-hash {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "pdfcrack",
+    "category": "password_attacks",
+    "description": "PDF files password cracker",
+    "command_template": "pdfcrack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "pipal",
+    "category": "password_attacks",
+    "description": "Statistical analysis on password dumps",
+    "command_template": "pipal {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "polenum",
+    "category": "password_attacks",
+    "description": "Extracts the password policy from a Windows system",
+    "command_template": "polenum {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "rainbowcrack",
+    "category": "password_attacks",
+    "description": "Rainbow table password cracker",
+    "command_template": "rainbowcrack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "rarcrack",
+    "category": "password_attacks",
+    "description": "Password cracker for rar archives",
+    "command_template": "rarcrack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "rcracki-mt",
+    "category": "password_attacks",
+    "description": "Version of rcrack that supports hybrid and indexed tables",
+    "command_template": "rcracki-mt {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "rsmangler",
+    "category": "password_attacks",
+    "description": "Wordlist mangling tool",
+    "command_template": "rsmangler {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "samdump2",
+    "category": "password_attacks",
+    "description": "Dump Windows 2k/NT/XP password hashes",
+    "command_template": "samdump2 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "seclists",
+    "category": "password_attacks",
+    "description": "Collection of multiple types of security lists",
+    "command_template": "seclists {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "sipcrack",
+    "category": "password_attacks",
+    "description": "SIP login dumper/cracker",
+    "command_template": "sipcrack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "statsprocessor",
+    "category": "password_attacks",
+    "description": "word generator based on per-position Markov chains",
+    "command_template": "statsprocessor {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "sucrack",
+    "category": "password_attacks",
+    "description": "multithreaded su bruteforcer",
+    "command_template": "sucrack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "thc-pptp-bruter",
+    "category": "password_attacks",
+    "description": "THC PPTP Brute Force",
+    "command_template": "thc-pptp-bruter {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "truecrack",
+    "category": "password_attacks",
+    "description": "Bruteforce password cracker for TrueCrypt volumes",
+    "command_template": "truecrack {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "wordlists",
+    "category": "password_attacks",
+    "description": "Contains the rockyou wordlist",
+    "command_template": "wordlists {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "password attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "kali-tools-802-11",
+    "category": "wireless_attacks",
+    "description": "Kali's 802.11 attacks tools",
+    "command_template": "kali-tools-802-11 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "wireless attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "kali-tools-bluetooth",
+    "category": "wireless_attacks",
+    "description": "Kali's bluetooth attacks tools",
+    "command_template": "kali-tools-bluetooth {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "wireless attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "kali-tools-rfid",
+    "category": "wireless_attacks",
+    "description": "Kali's RFID tools",
+    "command_template": "kali-tools-rfid {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "wireless attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "kali-tools-sdr",
+    "category": "wireless_attacks",
+    "description": "Kali's SDR tools",
+    "command_template": "kali-tools-sdr {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "wireless attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "rfcat",
+    "category": "wireless_attacks",
+    "description": "Swiss army knife of sub-GHz radio",
+    "command_template": "rfcat {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "wireless attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "rfkill",
+    "category": "wireless_attacks",
+    "description": "tool for enabling and disabling wireless devices",
+    "command_template": "rfkill {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "wireless attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "sakis3g",
+    "category": "wireless_attacks",
+    "description": "Tool for establishing 3G connections",
+    "command_template": "sakis3g {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "wireless attacks",
+      "kali"
+    ]
+  },
+  {
+    "name": "apktool",
+    "category": "reverse_engineering",
+    "description": "tool for reverse engineering Android apk files",
+    "command_template": "apktool {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "bytecode-viewer",
+    "category": "reverse_engineering",
+    "description": "Java 8+ Jar & Android APK Reverse Engineering Suite",
+    "command_template": "bytecode-viewer {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "clang",
+    "category": "reverse_engineering",
+    "description": "C, C++ and Objective-C compiler (LLVM based), clang binary",
+    "command_template": "clang {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "dex2jar",
+    "category": "reverse_engineering",
+    "description": "Tools to work with android .dex and java .class files",
+    "command_template": "dex2jar {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "edb-debugger",
+    "category": "reverse_engineering",
+    "description": "cross platform x86/x86-64 debugger",
+    "command_template": "edb-debugger {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "jadx",
+    "category": "reverse_engineering",
+    "description": "Dex to Java decompiler",
+    "command_template": "jadx {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "javasnoop",
+    "category": "reverse_engineering",
+    "description": "Intercept Java applications locally",
+    "command_template": "javasnoop {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "jd-gui",
+    "category": "reverse_engineering",
+    "description": "GUI Java .class decompiler",
+    "command_template": "jd-gui {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "metasploit-framework",
+    "category": "reverse_engineering",
+    "description": "Framework for exploit development and vulnerability research",
+    "command_template": "metasploit-framework {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "ollydbg",
+    "category": "reverse_engineering",
+    "description": "32-bit assembler level analysing debugger",
+    "command_template": "ollydbg {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "radare2",
+    "category": "reverse_engineering",
+    "description": "free and advanced command line hexadecimal editor",
+    "command_template": "radare2 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "rizin",
+    "category": "reverse_engineering",
+    "description": "reverse engineering framework and command-line toolset",
+    "command_template": "rizin {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "rizin-cutter",
+    "category": "reverse_engineering",
+    "description": "reverse engineering platform powered by rizin",
+    "command_template": "rizin-cutter {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "rz-ghidra",
+    "category": "reverse_engineering",
+    "description": "ghidra decompiler and sleigh disassembler for rizin",
+    "command_template": "rz-ghidra {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "reverse engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "armitage",
+    "category": "exploitation_tools",
+    "description": "Cyber attack management for Metasploit",
+    "command_template": "armitage {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "exploitation tools",
+      "kali"
+    ]
+  },
+  {
+    "name": "exploitdb",
+    "category": "exploitation_tools",
+    "description": "Searchable Exploit Database archive",
+    "command_template": "exploitdb {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "exploitation tools",
+      "kali"
+    ]
+  },
+  {
+    "name": "msfpc",
+    "category": "exploitation_tools",
+    "description": "MSFvenom Payload Creator (MSFPC)",
+    "command_template": "msfpc {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "exploitation tools",
+      "kali"
+    ]
+  },
+  {
+    "name": "set",
+    "category": "exploitation_tools",
+    "description": "Social-Engineer Toolkit",
+    "command_template": "set {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "exploitation tools",
+      "kali"
+    ]
+  },
+  {
+    "name": "shellnoob",
+    "category": "exploitation_tools",
+    "description": "Shellcode writing toolkit",
+    "command_template": "shellnoob {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "exploitation tools",
+      "kali"
+    ]
+  },
+  {
+    "name": "termineter",
+    "category": "exploitation_tools",
+    "description": "Smart meter testing framework",
+    "command_template": "termineter {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "exploitation tools",
+      "kali"
+    ]
+  },
+  {
+    "name": "veil",
+    "category": "social_engineering",
+    "description": "Generates payloads to bypass anti-virus solutions",
+    "command_template": "veil {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "social engineering",
+      "kali"
+    ]
+  },
+  {
+    "name": "above",
+    "category": "sniffing_spoofing",
+    "description": "Network security sniffer for finding vulnerabilities in the network",
+    "command_template": "above {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "bettercap",
+    "category": "sniffing_spoofing",
+    "description": "Complete, modular, portable and easily extensible MITM framework",
+    "command_template": "bettercap {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "darkstat",
+    "category": "sniffing_spoofing",
+    "description": "network traffic analyzer",
+    "command_template": "darkstat {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "dnschef",
+    "category": "sniffing_spoofing",
+    "description": "DNS proxy for penetration testers",
+    "command_template": "dnschef {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "driftnet",
+    "category": "sniffing_spoofing",
+    "description": "picks out and displays images from network traffic",
+    "command_template": "driftnet {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "dsniff",
+    "category": "sniffing_spoofing",
+    "description": "Various tools to sniff network traffic for cleartext insecurities",
+    "command_template": "dsniff {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "ettercap-text-only",
+    "category": "sniffing_spoofing",
+    "description": "Ettercap console-mode executable",
+    "command_template": "ettercap-text-only {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "fiked",
+    "category": "sniffing_spoofing",
+    "description": "Cisco VPN attack tool",
+    "command_template": "fiked {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "hexinject",
+    "category": "sniffing_spoofing",
+    "description": "Versatile packet injector and sniffer",
+    "command_template": "hexinject {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "isr-evilgrade",
+    "category": "sniffing_spoofing",
+    "description": "Evilgrade framework",
+    "command_template": "isr-evilgrade {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "macchanger",
+    "category": "sniffing_spoofing",
+    "description": "utility for manipulating the MAC address of network interfaces",
+    "command_template": "macchanger {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "netsniff-ng",
+    "category": "sniffing_spoofing",
+    "description": "Linux network packet sniffer toolkit",
+    "command_template": "netsniff-ng {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "rebind",
+    "category": "sniffing_spoofing",
+    "description": "DNS rebinding tool",
+    "command_template": "rebind {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "responder",
+    "category": "sniffing_spoofing",
+    "description": "LLMNR/NBT-NS/mDNS Poisoner",
+    "command_template": "responder {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "sniffjoke",
+    "category": "sniffing_spoofing",
+    "description": "Transparent TCP connection scrambler",
+    "command_template": "sniffjoke {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "tcpflow",
+    "category": "sniffing_spoofing",
+    "description": "TCP flow recorder",
+    "command_template": "tcpflow {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "tcpreplay",
+    "category": "sniffing_spoofing",
+    "description": "Tool to replay saved tcpdump files at arbitrary speeds",
+    "command_template": "tcpreplay {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "wifi-honey",
+    "category": "sniffing_spoofing",
+    "description": "Wi-Fi honeypot",
+    "command_template": "wifi-honey {args} {target}",
+    "default_args": "--help",
+    "risk_level": "high",
+    "tags": [
+      "sniffing spoofing",
+      "kali"
+    ]
+  },
+  {
+    "name": "cymothoa",
+    "category": "post_exploitation",
+    "description": "Stealth backdooring tool",
+    "command_template": "cymothoa {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "dbd",
+    "category": "post_exploitation",
+    "description": "Netcat clone with encryption",
+    "command_template": "dbd {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "dns2tcp",
+    "category": "post_exploitation",
+    "description": "TCP-over-DNS tunnel server and client",
+    "command_template": "dns2tcp {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "exe2hexbat",
+    "category": "post_exploitation",
+    "description": "Convert EXE to bat",
+    "command_template": "exe2hexbat {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "iodine",
+    "category": "post_exploitation",
+    "description": "tool for tunneling IPv4 data through a DNS server",
+    "command_template": "iodine {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "miredo",
+    "category": "post_exploitation",
+    "description": "Teredo IPv6 tunneling through NATs",
+    "command_template": "miredo {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "powersploit",
+    "category": "post_exploitation",
+    "description": "PowerShell Post-Exploitation Framework",
+    "command_template": "powersploit {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "ptunnel",
+    "category": "post_exploitation",
+    "description": "Tunnel TCP connections over ICMP packets",
+    "command_template": "ptunnel {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "pwnat",
+    "category": "post_exploitation",
+    "description": "NAT to NAT client-server communication",
+    "command_template": "pwnat {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "sbd",
+    "category": "post_exploitation",
+    "description": "Secure backdoor for Linux and Windows",
+    "command_template": "sbd {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "shellter",
+    "category": "post_exploitation",
+    "description": "Dynamic shellcode injection tool and dynamic PE infector",
+    "command_template": "shellter {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "udptunnel",
+    "category": "post_exploitation",
+    "description": "tunnel UDP packets over a TCP connection",
+    "command_template": "udptunnel {args} {target}",
+    "default_args": "--help",
+    "risk_level": "medium",
+    "tags": [
+      "post exploitation",
+      "kali"
+    ]
+  },
+  {
+    "name": "7zip",
+    "category": "forensics",
+    "description": "7-Zip file archiver with a high compression ratio",
+    "command_template": "7zip {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "afflib-tools",
+    "category": "forensics",
+    "description": "Advanced Forensics Format Library (utilities)",
+    "command_template": "afflib-tools {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "autopsy",
+    "category": "forensics",
+    "description": "graphical interface to SleuthKit",
+    "command_template": "autopsy {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "binwalk",
+    "category": "forensics",
+    "description": "tool library for analyzing binary blobs and executable code",
+    "command_template": "binwalk {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "binwalk3",
+    "category": "forensics",
+    "description": "tool library for analyzing binary blobs and executable code",
+    "command_template": "binwalk3 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "bulk-extractor",
+    "category": "forensics",
+    "description": "Extracts information without parsing filesystem",
+    "command_template": "bulk-extractor {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "cabextract",
+    "category": "forensics",
+    "description": "Microsoft Cabinet file unpacker",
+    "command_template": "cabextract {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "chkrootkit",
+    "category": "forensics",
+    "description": "rootkit detector",
+    "command_template": "chkrootkit {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "dc3dd",
+    "category": "forensics",
+    "description": "patched version of GNU dd with forensic features",
+    "command_template": "dc3dd {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "dcfldd",
+    "category": "forensics",
+    "description": "enhanced version of dd for forensics and security",
+    "command_template": "dcfldd {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "ddrescue",
+    "category": "forensics",
+    "description": "data recovery and protection tool",
+    "command_template": "ddrescue {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "dumpzilla",
+    "category": "forensics",
+    "description": "Mozilla browser forensic tool",
+    "command_template": "dumpzilla {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "ewf-tools",
+    "category": "forensics",
+    "description": "collection of tools for reading and writing EWF files",
+    "command_template": "ewf-tools {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "exifprobe",
+    "category": "forensics",
+    "description": "read metadata from digital pictures",
+    "command_template": "exifprobe {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "exiv2",
+    "category": "forensics",
+    "description": "EXIF/IPTC/XMP metadata manipulation tool",
+    "command_template": "exiv2 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "ext3grep",
+    "category": "forensics",
+    "description": "tool to help recover deleted files on ext3 filesystems",
+    "command_template": "ext3grep {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "ext4magic",
+    "category": "forensics",
+    "description": "recover deleted files from ext3 or ext4 partitions",
+    "command_template": "ext4magic {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "extundelete",
+    "category": "forensics",
+    "description": "utility to recover deleted files from ext3/ext4 partition",
+    "command_template": "extundelete {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "firmware-mod-kit",
+    "category": "forensics",
+    "description": "Deconstruct and reconstruct firmware images",
+    "command_template": "firmware-mod-kit {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "foremost",
+    "category": "forensics",
+    "description": "forensic program to recover lost files",
+    "command_template": "foremost {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "forensic-artifacts",
+    "category": "forensics",
+    "description": "knowledge base of forensic artifacts (data files)",
+    "command_template": "forensic-artifacts {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "forensics-colorize",
+    "category": "forensics",
+    "description": "show differences between files using color graphics",
+    "command_template": "forensics-colorize {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "galleta",
+    "category": "forensics",
+    "description": "Internet Explorer cookie forensic analysis tool",
+    "command_template": "galleta {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "gdb",
+    "category": "forensics",
+    "description": "GNU Debugger",
+    "command_template": "gdb {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "gpart",
+    "category": "forensics",
+    "description": "Guess PC disk partition table, find lost partitions",
+    "command_template": "gpart {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "gparted",
+    "category": "forensics",
+    "description": "GNOME partition editor",
+    "command_template": "gparted {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "grokevt",
+    "category": "forensics",
+    "description": "scripts for reading Microsoft Windows event log files",
+    "command_template": "grokevt {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "guymager",
+    "category": "forensics",
+    "description": "Forensic imaging tool based on Qt",
+    "command_template": "guymager {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "hashdeep",
+    "category": "forensics",
+    "description": "recursively compute hashsums or piecewise hashings",
+    "command_template": "hashdeep {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "inetsim",
+    "category": "forensics",
+    "description": "Software suite for simulating common internet services",
+    "command_template": "inetsim {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "lvm2",
+    "category": "forensics",
+    "description": "Linux Logical Volume Manager",
+    "command_template": "lvm2 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "mac-robber",
+    "category": "forensics",
+    "description": "collects data about allocated files in mounted filesystems",
+    "command_template": "mac-robber {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "magicrescue",
+    "category": "forensics",
+    "description": "recover files by looking for magic bytes",
+    "command_template": "magicrescue {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "<md5deep>",
+    "category": "forensics",
+    "description": "Security tool",
+    "command_template": "<md5deep> {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "memdump",
+    "category": "forensics",
+    "description": "utility to dump memory contents to standard output",
+    "command_template": "memdump {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "metacam",
+    "category": "forensics",
+    "description": "extract EXIF information from digital camera files",
+    "command_template": "metacam {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "missidentify",
+    "category": "forensics",
+    "description": "find win32 applications",
+    "command_template": "missidentify {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "myrescue",
+    "category": "forensics",
+    "description": "rescue data from damaged disks",
+    "command_template": "myrescue {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "nasm",
+    "category": "forensics",
+    "description": "General-purpose x86 assembler",
+    "command_template": "nasm {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "nasty",
+    "category": "forensics",
+    "description": "tool which helps you to recover your GPG passphrase",
+    "command_template": "nasty {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "parted",
+    "category": "forensics",
+    "description": "disk partition manipulator",
+    "command_template": "parted {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "pasco",
+    "category": "forensics",
+    "description": "Internet Explorer cache forensic analysis tool",
+    "command_template": "pasco {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "pdf-parser",
+    "category": "forensics",
+    "description": "Parses PDF files to identify fundamental elements",
+    "command_template": "pdf-parser {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "pdfid",
+    "category": "forensics",
+    "description": "Scans PDF files for certain PDF keywords",
+    "command_template": "pdfid {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "plaso",
+    "category": "forensics",
+    "description": "super timeline all the things -- metapackage",
+    "command_template": "plaso {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "pst-utils",
+    "category": "forensics",
+    "description": "tools for reading Microsoft Outlook PST files",
+    "command_template": "pst-utils {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "readpe",
+    "category": "forensics",
+    "description": "command-line tools to manipulate Windows PE files",
+    "command_template": "readpe {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "recoverdm",
+    "category": "forensics",
+    "description": "recover files on disks with damaged sectors",
+    "command_template": "recoverdm {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "recoverjpeg",
+    "category": "forensics",
+    "description": "recover JFIF (JPEG) pictures and MOV movies",
+    "command_template": "recoverjpeg {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "reglookup",
+    "category": "forensics",
+    "description": "utility to analysis for Windows NT-based registry",
+    "command_template": "reglookup {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "regripper",
+    "category": "forensics",
+    "description": "perform forensic analysis of registry hives",
+    "command_template": "regripper {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "rephrase",
+    "category": "forensics",
+    "description": "Specialized passphrase recovery tool for GnuPG",
+    "command_template": "rephrase {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "rifiuti",
+    "category": "forensics",
+    "description": "MS Windows recycle bin analysis tool",
+    "command_template": "rifiuti {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "rifiuti2",
+    "category": "forensics",
+    "description": "replacement for rifiuti, a MS Windows recycle bin analysis tool",
+    "command_template": "rifiuti2 {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "rkhunter",
+    "category": "forensics",
+    "description": "rootkit, backdoor, sniffer and exploit scanner",
+    "command_template": "rkhunter {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "rsakeyfind",
+    "category": "forensics",
+    "description": "locates BER-encoded RSA private keys in memory images",
+    "command_template": "rsakeyfind {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "safecopy",
+    "category": "forensics",
+    "description": "data recovery tool for problematic or damaged media",
+    "command_template": "safecopy {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "scalpel",
+    "category": "forensics",
+    "description": "fast filesystem-independent file recovery",
+    "command_template": "scalpel {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "scrounge-ntfs",
+    "category": "forensics",
+    "description": "Data recovery program for NTFS filesystems",
+    "command_template": "scrounge-ntfs {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "sleuthkit",
+    "category": "forensics",
+    "description": "tools for forensics analysis on volume and filesystem data",
+    "command_template": "sleuthkit {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "ssdeep",
+    "category": "forensics",
+    "description": "recursive piecewise hashing tool",
+    "command_template": "ssdeep {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "tcpdump",
+    "category": "forensics",
+    "description": "command-line network traffic analyzer",
+    "command_template": "tcpdump {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "tcpick",
+    "category": "forensics",
+    "description": "TCP stream sniffer and connection tracker",
+    "command_template": "tcpick {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "undbx",
+    "category": "forensics",
+    "description": "tool to extract, recover and undelete e-mail messages from .dbx files",
+    "command_template": "undbx {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "unhide",
+    "category": "forensics",
+    "description": "forensic tool to find hidden processes and ports",
+    "command_template": "unhide {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "unar",
+    "category": "forensics",
+    "description": "Unarchiver for a variety of file formats",
+    "command_template": "unar {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "upx-ucl",
+    "category": "forensics",
+    "description": "efficient live-compressor for executables",
+    "command_template": "upx-ucl {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "vinetto",
+    "category": "forensics",
+    "description": "forensics tool to examine Thumbs.db files",
+    "command_template": "vinetto {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "wce",
+    "category": "forensics",
+    "description": "Windows Credentials Editor",
+    "command_template": "wce {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "winregfs",
+    "category": "forensics",
+    "description": "Windows registry FUSE filesystem",
+    "command_template": "winregfs {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "xmount",
+    "category": "forensics",
+    "description": "tool for crossmounting between disk image formats",
+    "command_template": "xmount {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "xplico",
+    "category": "forensics",
+    "description": "Network Forensic Analysis Tool (NFAT)",
+    "command_template": "xplico {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "yara",
+    "category": "forensics",
+    "description": "Pattern matching swiss knife for malware researchers",
+    "command_template": "yara {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "forensics",
+      "kali"
+    ]
+  },
+  {
+    "name": "dradis",
+    "category": "reporting_tools",
+    "description": "Collaboration tools for penetration testing",
+    "command_template": "dradis {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "reporting tools",
+      "kali"
+    ]
+  },
+  {
+    "name": "faraday",
+    "category": "reporting_tools",
+    "description": "Collaborative Penetration Test IDE",
+    "command_template": "faraday {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "reporting tools",
+      "kali"
+    ]
+  },
+  {
+    "name": "recordmydesktop",
+    "category": "reporting_tools",
+    "description": "Captures audio-video data of a Linux desktop session",
+    "command_template": "recordmydesktop {args} {target}",
+    "default_args": "--help",
+    "risk_level": "low",
+    "tags": [
+      "reporting tools",
+      "kali"
+    ]
+  }
+]

@@ -1,0 +1,2 @@
+"""Infrastructure adapters (v2)."""
+

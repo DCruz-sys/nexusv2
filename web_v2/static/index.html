@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nexus v2</title>
+  <link rel="stylesheet" href="/v2/static/css/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div class="title">Nexus v2</div>
+      <div class="subtitle">Engagement + Run Graph (Local-First)</div>
+    </header>
+
+    <section class="card">
+      <h2>Auth</h2>
+      <div class="row">
+        <input id="username" placeholder="Username (default: admin)" />
+        <input id="password" type="password" placeholder="Password" />
+        <button id="btn-login">Login</button>
+        <button id="btn-logout" class="secondary">Logout</button>
+      </div>
+      <div class="mono" id="auth-status">Not logged in.</div>
+    </section>
+
+    <section class="card">
+      <h2>Engagements</h2>
+      <div class="row">
+        <input id="eng-name" placeholder="Engagement name" />
+        <button id="btn-create-eng">Create</button>
+        <button id="btn-refresh-eng" class="secondary">Refresh</button>
+      </div>
+      <div class="row">
+        <select id="eng-select"></select>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Scope Rules</h2>
+      <div class="row">
+        <select id="scope-type">
+          <option value="domain">domain</option>
+          <option value="ip">ip</option>
+          <option value="cidr">cidr</option>
+        </select>
+        <input id="scope-pattern" placeholder="example.com or 192.168.1.0/24" />
+        <button id="btn-add-scope">Add Rule</button>
+        <button id="btn-refresh-scope" class="secondary">Refresh</button>
+      </div>
+      <pre id="scope-list" class="mono"></pre>
+    </section>
+
+    <section class="card">
+      <h2>Create Run (Quick Scan)</h2>
+      <div class="row">
+        <input id="run-target" placeholder="Target (must be in scope) e.g. scanme.nmap.org" />
+        <select id="scan-mode">
+          <option value="quick">quick</option>
+          <option value="ci">ci</option>
+          <option value="standard">standard</option>
+          <option value="deep">deep</option>
+        </select>
+        <button id="btn-create-run">Create Run</button>
+      </div>
+      <div class="mono" id="run-created"></div>
+    </section>
+
+    <section class="card">
+      <h2>Run Events</h2>
+      <div class="row">
+        <input id="run-id" placeholder="Run ID" />
+        <button id="btn-connect">Connect WS</button>
+        <button id="btn-disconnect" class="secondary">Disconnect</button>
+      </div>
+      <pre id="events" class="mono events"></pre>
+    </section>
+  </div>
+
+  <script src="/v2/static/js/app.js"></script>
+</body>
+</html>
+

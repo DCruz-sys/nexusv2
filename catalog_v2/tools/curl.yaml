@@ -1,0 +1,11 @@
+name: curl
+binary: curl
+category: information_gathering
+risk_level: low
+hitl_default: false
+timeout_sec_default: 60
+args_template:
+  - "{binary}"
+  - "{args}"
+  - "{target_url}"
+

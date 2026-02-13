@@ -1,0 +1,55 @@
+{
+  "manifest_version": 1,
+  "scan_id": "f87cf13e-f7f3-46bf-a71f-7355822dd7e3",
+  "exported_at": "2026-02-12T06:58:40.859874",
+  "section_hashes": {
+    "scan": "9d579f30dcf846980d39c9ed8f92a6ba5d827f81b5f3fa453e1cf27c4c90c775",
+    "results": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "jobs": "6333b9a2f7a6d81fe3bc84cac7608d184ef8404ab4bdd2460aaefef170bc63b8",
+    "checkpoints": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "audit": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "audit_integrity": {
+    "valid": true,
+    "checked": 302,
+    "broken": 0,
+    "first_error_id": null,
+    "last_hash": "165c2dd01583cb940f18a45cb64b568f064b604ec404e21911a68619018f59e0"
+  },
+  "artifacts": {
+    "scan": {
+      "id": "f87cf13e-f7f3-46bf-a71f-7355822dd7e3",
+      "target": "https://example.com",
+      "scan_type": "quick",
+      "methodology": "owasp",
+      "status": "stopping",
+      "progress": 0,
+      "config": "{}",
+      "created_at": "2026-02-12T06:58:40.624447",
+      "updated_at": "2026-02-12T06:58:40.733271",
+      "completed_at": null
+    },
+    "results": [],
+    "jobs": [
+      {
+        "id": "1f8cec70-0dda-4767-b4b6-cab7f4e7d83f",
+        "type": "scan",
+        "payload": "{\"scan_id\": \"f87cf13e-f7f3-46bf-a71f-7355822dd7e3\", \"target\": \"https://example.com\", \"methodology\": \"owasp\", \"scan_type\": \"quick\", \"config\": {}}",
+        "status": "cancelled",
+        "attempt": 0,
+        "max_attempts": 2,
+        "next_run_at": "2026-02-12T06:58:40.641444",
+        "error": null,
+        "created_at": "2026-02-12T06:58:40.641444",
+        "updated_at": "2026-02-12T06:58:40.703808",
+        "started_at": null,
+        "finished_at": "2026-02-12T06:58:40.703808",
+        "worker_id": null,
+        "lease_until": null,
+        "heartbeat_at": null
+      }
+    ],
+    "checkpoints": [],
+    "audit_events": []
+  }
+}

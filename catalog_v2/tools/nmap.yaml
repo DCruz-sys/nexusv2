@@ -1,0 +1,17 @@
+name: nmap
+binary: nmap
+category: information_gathering
+risk_level: low
+hitl_default: false
+timeout_sec_default: 600
+args_template:
+  - "{binary}"
+  - "-sV"
+  - "-sC"
+  - "--top-ports"
+  - "100"
+  - "-T4"
+  - "{target_host}"
+output_rules:
+  inline_max_bytes: 50000
+

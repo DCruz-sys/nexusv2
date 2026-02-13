@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusPenTest - AI Penetration Testing Platform</title>
+    <meta name="description" content="AI-powered penetration testing platform with multi-model orchestration for Kali Linux.">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+<div class="app-layout">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="topbar-logo">
+            <div class="icon">🛡️</div>
+            <span>NexusPenTest</span>
+        </div>
+        <div class="topbar-status">
+            <span class="status-dot"></span>
+            <span id="connection-status">Initializing...</span>
+        </div>
+        <div class="topbar-actions">
+            <div class="topbar-user">
+                <span class="user-pill" id="auth-user">Guest</span>
+                <button class="btn btn-sm btn-secondary" onclick="logout()">Logout</button>
+            </div>
+            <button class="btn btn-sm btn-secondary" onclick="loadFrameworksSummary()">⚡ Frameworks</button>
+            <button class="btn btn-sm btn-primary" onclick="navigateTo('new-scan')">+ New Scan</button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Main</div>
+            <div class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')">
+                <span class="icon">📊</span> Dashboard
+            </div>
+            <div class="nav-item" data-page="chat" onclick="navigateTo('chat')">
+                <span class="icon">💬</span> AI Chat
+            </div>
+            <div class="nav-item" data-page="new-scan" onclick="navigateTo('new-scan')">
+                <span class="icon">🔍</span> New Scan
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Operations</div>
+            <div class="nav-item" data-page="active-scans" onclick="navigateTo('active-scans')">
+                <span class="icon">⚡</span> Active Scans
+            </div>
+            <div class="nav-item" data-page="swarm-runs" onclick="navigateTo('swarm-runs')">
+                <span class="icon">🐝</span> Swarm Runs
+            </div>
+            <div class="nav-item" data-page="targets" onclick="navigateTo('targets')">
+                <span class="icon">🎯</span> Targets
+            </div>
+            <div class="nav-item" data-page="history" onclick="navigateTo('history')">
+                <span class="icon">📋</span> History
+            </div>
+            <div class="nav-item" data-page="reports" onclick="navigateTo('reports')">
+                <span class="icon">📄</span> Reports
+            </div>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Knowledge</div>
+            <div class="nav-item" data-page="learning" onclick="navigateTo('learning')">
+                <span class="icon">🧠</span> Learning
+            </div>
+            <div class="nav-item" data-page="frameworks" onclick="navigateTo('frameworks')">
+                <span class="icon">🗂️</span> Frameworks
+            </div>
+            <div class="nav-item" data-page="tools" onclick="navigateTo('tools')">
+                <span class="icon">🔧</span> Tool Catalog
+            </div>
+        </div>
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-section">
+            <div class="nav-item" style="color:var(--text-muted);font-size:11px">
+                <span class="icon">⚙️</span> v1.0.0 • Kali Linux
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Dashboard Page -->
+        <div class="page active" id="page-dashboard">
+            <div class="section-header">
+                <div>
+                    <h2>Dashboard</h2>
+                    <div class="subtitle">AI-Powered Penetration Testing Command Center</div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="stat-card">
+                    <div class="label">Total Scans</div>
+                    <div class="value" id="stat-total-scans" style="color:var(--accent)">0</div>
+                    <div class="sub">All time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Active Scans</div>
+                    <div class="value" id="stat-active-scans" style="color:var(--purple)">0</div>
+                    <div class="sub">Currently running</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">AI Models</div>
+                    <div class="value" id="stat-models" style="color:var(--green)">-</div>
+                    <div class="sub">Available</div>
+                </div>
+                <div class="stat-card">
+                    <div class="label">Kali Tools</div>
+                    <div class="value" id="stat-tools" style="color:var(--orange)">50</div>
+                    <div class="sub">Integrated</div>
+                </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="card">
+                    <div class="card-header">
+                        🤖 AI Model Routing
+                    </div>
+                    <div class="card-body" style="font-size:13px">
+                        <div style="display:flex;flex-direction:column;gap:10px">
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg-tertiary);border-radius:6px">
+                                <span>Planning & Strategy</span><span class="badge badge-info">LLaMA 70B</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg-tertiary);border-radius:6px">
+                                <span>Analysis & Assessment</span><span class="badge badge-info">LLaMA 70B</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg-tertiary);border-radius:6px">
+                                <span>Quick Classification</span><span class="badge badge-info">LLaMA 8B</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg-tertiary);border-radius:6px">
+                                <span>Code & Exploit Review</span><span class="badge badge-info">DeepSeek R1</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg-tertiary);border-radius:6px">
+                                <span>Summarization & Reports</span><span class="badge badge-info">Mistral Large</span>
+                            </div>
+                            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:var(--bg-tertiary);border-radius:6px">
+                                <span>Multi-task Reasoning</span><span class="badge badge-info">Kimi K2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        📡 Recent Activity
+                        <button class="btn btn-sm btn-secondary" onclick="loadDashboard()">Refresh</button>
+                    </div>
+                    <div class="card-body" id="recent-activity">
+                        <div class="empty-state" style="padding:30px">
+                            <div class="icon">🚀</div>
+                            <h3>Ready to Start</h3>
+                            <p>Launch your first scan or start an AI chat session to begin.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Page -->
+        <div class="page" id="page-chat">
+            <div class="chat-layout">
+                <div class="chat-messages" id="chat-messages">
+                    <div class="chat-msg assistant">
+                        <div>👋 Welcome to <strong>NexusPenTest AI</strong>! I'm your AI penetration testing assistant powered by NVIDIA NIM multi-model orchestration.</div>
+                        <div style="margin-top:10px">I can help you with:</div>
+                        <div style="margin-top:6px">• 🔍 <strong>Reconnaissance planning</strong> and tool recommendations</div>
+                        <div>• 🛡️ <strong>OWASP WSTG</strong> methodology guidance</div>
+                        <div>• ⚔️ <strong>MITRE ATT&CK</strong> technique mapping</div>
+                        <div>• 🔧 <strong>Kali Linux tool</strong> command generation</div>
+                        <div>• 📊 <strong>Vulnerability analysis</strong> and assessment</div>
+                        <div style="margin-top:10px"><strong>Commands</strong></div>
+                        <div style="margin-top:6px">• 🧠 <code>/learn https://book.hacktricks.wiki</code> to crawl and learn</div>
+                        <div>• 🔍 <code>scan https://example.com quick</code> or <code>full scan https://example.com</code></div>
+                        <div style="margin-top:10px">Type your question below to get started!</div>
+                        <div class="msg-meta">
+                            <span>System</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <div class="chat-input-row">
+                        <select id="chat-model-select">
+                            <option value="">Auto-Route</option>
+                            <option value="llama-3.1-405b">LLaMA 405B</option>
+                            <option value="llama-3.1-70b">LLaMA 70B</option>
+                            <option value="llama-3.1-8b">LLaMA 8B</option>
+                            <option value="deepseek-r1">DeepSeek R1</option>
+                            <option value="mistral-large">Mistral Large</option>
+                            <option value="kimi-k2">Kimi K2</option>
+                            <option value="gpt-oss-20b">GPT OSS 20B</option>
+                            <option value="nemotron-3-nano-30b-a3b">Nemotron 3 Nano 30B A3B</option>
+                            <option value="deepseek-v3.1">DeepSeek V3.1</option>
+                            <option value="deepseek-v3.2">DeepSeek V3.2</option>
+                            <option value="kimi-k2.5">Kimi K2.5</option>
+                            <option value="glm4.7">GLM 4.7</option>
+                            <option value="devstral-2-123b">Devstral 2 123B</option>
+                        </select>
+                        <textarea class="chat-input" id="chat-input" placeholder="Ask about pentest methodologies, tools, or vulnerabilities..." rows="1"></textarea>
+                        <button class="btn btn-primary btn-icon" onclick="sendChatMessage()" id="chat-send-btn">➤</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Scan Page -->
+        <div class="page" id="page-new-scan">
+            <div class="section-header">
+                <div>
+                    <h2>New Scan</h2>
+                    <div class="subtitle">Configure and launch an AI-assisted penetration test</div>
+                </div>
+            </div>
+
+            <div class="card" style="max-width:900px">
+                <div class="card-header">⚙️ Scan Configuration</div>
+                <div class="card-body">
+                    <div class="scan-config-grid">
+                        <div>
+                            <div class="form-group">
+                                <label>Target</label>
+                                <input type="text" class="form-input" id="scan-target" placeholder="e.g., https://example.com or 192.168.1.0/24">
+                            </div>
+                            <div class="form-group">
+                                <label>Scan Type</label>
+                                <select class="form-select" id="scan-type">
+                                    <option value="full">Full Assessment</option>
+                                    <option value="quick">Quick Scan</option>
+                                </select>
+                            </div>
+                            <div class="allowlist-row" id="allowlist-row" style="display:none">
+                                <span class="allowlist-label">Scope</span>
+                                <span class="badge" id="allowlist-badge">Checking...</span>
+                                <span class="allowlist-normalized" id="allowlist-normalized"></span>
+                                <button class="btn btn-sm btn-secondary" id="allowlist-add-btn" onclick="addTargetAllowlistFromUI()" style="display:none">Add to allowlist</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label>Notes (Optional)</label>
+                                <textarea class="form-input" id="scan-notes" placeholder="Any additional context for the AI..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:8px">
+                        <label>Methodology</label>
+                        <div class="methodology-cards">
+                            <div class="method-card selected" data-method="owasp" onclick="selectMethodology(this)">
+                                <div class="method-icon">🛡️</div>
+                                <div class="method-name">OWASP WSTG v4.2</div>
+                                <div class="method-desc">Web Security Testing Guide with 11 categories and 90+ test cases</div>
+                            </div>
+                            <div class="method-card" data-method="mitre" onclick="selectMethodology(this)">
+                                <div class="method-icon">⚔️</div>
+                                <div class="method-name">MITRE ATT&CK</div>
+                                <div class="method-desc">Enterprise framework with 14 tactics and mapped techniques</div>
+                            </div>
+                            <div class="method-card" data-method="killchain" onclick="selectMethodology(this)">
+                                <div class="method-icon">🔗</div>
+                                <div class="method-name">Cyber Kill Chain</div>
+                                <div class="method-desc">7-phase methodology from reconnaissance to actions on objectives</div>
+                            </div>
+                            <div class="method-card" data-method="ai" onclick="selectMethodology(this)">
+                                <div class="method-icon">🤖</div>
+                                <div class="method-name">AI-Planned</div>
+                                <div class="method-desc">Let the AI agent swarm create a custom strategy using LLaMA 70B + Nemotron planning</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display:flex;gap:10px;margin-top:20px;justify-content:flex-end">
+                        <button class="btn btn-secondary" onclick="navigateTo('dashboard')">Cancel</button>
+                        <button class="btn btn-primary" onclick="startScan()">🚀 Launch Scan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Scans Page -->
+        <div class="page" id="page-active-scans">
+            <div class="section-header">
+                <div>
+                    <h2>Active Scans</h2>
+                    <div class="subtitle">Live scan progress and real-time tool output</div>
+                </div>
+                <button class="btn btn-sm btn-secondary" onclick="loadActiveScans()">Refresh</button>
+            </div>
+            <div id="active-scans-list">
+                <div class="empty-state">
+                    <div class="icon">⚡</div>
+                    <h3>No Active Scans</h3>
+                    <p>Launch a new scan to see real-time progress here.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swarm Runs Page -->
+        <div class="page" id="page-swarm-runs">
+            <div class="section-header">
+                <div>
+                    <h2>Swarm Runs</h2>
+                    <div class="subtitle">Persistent multi-agent autonomous runs with resumable execution</div>
+                </div>
+                <button class="btn btn-sm btn-secondary" onclick="loadSwarmRuns()">Refresh</button>
+            </div>
+
+            <div class="card" style="max-width:1100px;margin-bottom:16px">
+                <div class="card-header">🐝 Start Swarm Run</div>
+                <div class="card-body">
+                    <div class="scan-config-grid">
+                        <div>
+                            <div class="form-group">
+                                <label>Target</label>
+                                <input type="text" class="form-input" id="swarm-target" placeholder="e.g. https://example.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Methodology</label>
+                                <select class="form-select" id="swarm-methodology">
+                                    <option value="owasp">OWASP</option>
+                                    <option value="mitre">MITRE</option>
+                                    <option value="killchain">Kill Chain</option>
+                                    <option value="ai">AI</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Scan Type</label>
+                                <select class="form-select" id="swarm-scan-type">
+                                    <option value="quick">Quick</option>
+                                    <option value="full">Full</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label>Objective</label>
+                                <textarea class="form-input" id="swarm-objective" placeholder="Describe what the swarm should accomplish..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" onclick="startSwarmRun()">Queue Swarm Run</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="max-width:1100px">
+                <div class="card-header">Swarm Run History</div>
+                <div class="card-body" style="padding:0;overflow-x:auto">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Run</th>
+                                <th>Target</th>
+                                <th>Method</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="swarm-runs-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Page -->
+        <div class="page" id="page-history">
+            <div class="section-header">
+                <div>
+                    <h2>Scan History</h2>
+                    <div class="subtitle">Previous scan results and findings</div>
+                </div>
+                <button class="btn btn-sm btn-secondary" onclick="loadHistory()">Refresh</button>
+            </div>
+            <div class="card">
+                <div class="card-body" style="padding:0;overflow-x:auto">
+                    <table class="data-table" id="history-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Target</th>
+                                <th>Methodology</th>
+                                <th>Status</th>
+                                <th>Progress</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports Page -->
+        <div class="page" id="page-reports">
+            <div class="section-header">
+                <div>
+                    <h2>Reports</h2>
+                    <div class="subtitle">Generated security assessment reports</div>
+                </div>
+                <button class="btn btn-sm btn-secondary" onclick="loadReports()">Refresh</button>
+            </div>
+            <div id="reports-list">
+                <div class="empty-state">
+                    <div class="icon">📄</div>
+                    <h3>No Reports Generated</h3>
+                    <p>Complete a scan first, then generate reports in JSON, HTML, or PDF format.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Learning Page -->
+        <div class="page" id="page-learning">
+            <div class="section-header">
+                <div>
+                    <h2>Learning</h2>
+                    <div class="subtitle">Crawl trusted resources and distill procedure cards into long-term memory</div>
+                </div>
+                <button class="btn btn-sm btn-secondary" onclick="loadLearning()">Refresh</button>
+            </div>
+
+            <div class="card" style="max-width:1100px">
+                <div class="card-header">
+                    🧠 Learn From Web Resource
+                    <div style="display:flex;gap:8px">
+                        <button class="btn btn-sm btn-secondary" onclick="triggerDistillNow()">Distill Now</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="scan-config-grid" style="grid-template-columns: 1fr 180px; align-items:end">
+                        <div class="form-group" style="margin-bottom:0">
+                            <label>Seed URL</label>
+                            <input type="text" class="form-input" id="learn-seed-url" placeholder="e.g. https://book.hacktricks.wiki/en/index.html">
+                            <div class="hint">Focused crawl (same-domain only) + auto-distill after crawl completes.</div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:0">
+                            <button class="btn btn-primary" style="width:100%" onclick="runLearnSeed()">Learn</button>
+                        </div>
+                    </div>
+
+                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px">
+                        <div class="form-group" style="margin-bottom:0">
+                            <label>Max Depth</label>
+                            <input type="number" class="form-input" id="learn-max-depth" placeholder="(optional)">
+                        </div>
+                        <div class="form-group" style="margin-bottom:0">
+                            <label>Max Pages / Domain</label>
+                            <input type="number" class="form-input" id="learn-max-pages-domain" placeholder="(optional)">
+                        </div>
+                        <div class="form-group" style="margin-bottom:0">
+                            <label>Max Pages / Day</label>
+                            <input type="number" class="form-input" id="learn-max-pages-day" placeholder="(optional)">
+                        </div>
+                        <div class="form-group" style="margin-bottom:0">
+                            <label>Allow Subdomains</label>
+                            <label style="display:flex;gap:8px;align-items:center;margin-top:8px;color:var(--text-muted);font-size:13px">
+                                <input type="checkbox" id="learn-allow-subdomains" checked>
+                                <span>Include subdomains (www-safe)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px" id="learning-stats">
+                        <div class="stat-card" style="padding:14px">
+                            <div class="label">Crawler</div>
+                            <div class="value" id="crawl-enabled" style="font-size:18px">-</div>
+                            <div class="sub" id="crawl-pending">Pending: -</div>
+                        </div>
+                        <div class="stat-card" style="padding:14px">
+                            <div class="label">Latest Crawl</div>
+                            <div class="value" id="crawl-latest-status" style="font-size:18px">-</div>
+                            <div class="sub" id="crawl-latest-metrics">-</div>
+                        </div>
+                        <div class="stat-card" style="padding:14px">
+                            <div class="label">Latest Distill</div>
+                            <div class="value" id="distill-latest-status" style="font-size:18px">-</div>
+                            <div class="sub" id="distill-latest-metrics">-</div>
+                        </div>
+                        <div class="stat-card" style="padding:14px">
+                            <div class="label">Memory</div>
+                            <div class="value" id="memory-count" style="font-size:18px">-</div>
+                            <div class="sub" id="memory-breakdown">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns: 1fr 1fr; gap: 16px; margin-top:16px; max-width:1100px">
+                <div class="card">
+                    <div class="card-header">🌐 Crawl Sources</div>
+                    <div class="card-body" style="padding:0;overflow-x:auto">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Domain</th>
+                                    <th>Trust</th>
+                                    <th>Pages</th>
+                                    <th>Last</th>
+                                </tr>
+                            </thead>
+                            <tbody id="learning-sources-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">🛡️ Crawler Policy</div>
+                    <div class="card-body">
+                        <div class="scan-config-grid" style="grid-template-columns: 1fr 1fr; gap: 12px">
+                            <div class="form-group">
+                                <label>Domain</label>
+                                <input type="text" class="form-input" id="crawler-policy-domain" value="*">
+                                <div class="hint">Use <code>*</code> for global defaults or a specific domain.</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Allow</label>
+                                <select class="form-select" id="crawler-policy-allow">
+                                    <option value="true">Allow</option>
+                                    <option value="false">Block</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Max Depth</label>
+                                <input type="number" class="form-input" id="crawler-policy-max-depth" placeholder="(optional)">
+                            </div>
+                            <div class="form-group">
+                                <label>Daily Cap</label>
+                                <input type="number" class="form-input" id="crawler-policy-daily-cap" placeholder="(optional)">
+                            </div>
+                            <div class="form-group">
+                                <label>Trust Floor</label>
+                                <input type="number" step="0.01" class="form-input" id="crawler-policy-trust-floor" placeholder="(optional)">
+                            </div>
+                            <div class="form-group" style="display:flex;gap:8px;align-items:end">
+                                <button class="btn btn-secondary" onclick="loadCrawlerPolicyUI()">Load</button>
+                                <button class="btn btn-primary" onclick="saveCrawlerPolicyUI()">Save</button>
+                            </div>
+                        </div>
+                        <div class="hint" id="crawler-policy-status" style="margin-top:8px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Frameworks Page -->
+        <div class="page" id="page-frameworks">
+            <div class="section-header">
+                <div>
+                    <h2>Security Frameworks</h2>
+                    <div class="subtitle">Browse OWASP WSTG, MITRE ATT&CK, and Cyber Kill Chain</div>
+                </div>
+            </div>
+            <div class="framework-tabs">
+                <div class="framework-tab active" onclick="showFrameworkTab('owasp', event)">OWASP WSTG</div>
+                <div class="framework-tab" onclick="showFrameworkTab('attack', event)">MITRE ATT&CK</div>
+                <div class="framework-tab" onclick="showFrameworkTab('killchain', event)">Cyber Kill Chain</div>
+            </div>
+            <div id="framework-content"></div>
+        </div>
+
+        <!-- Targets Page -->
+        <div class="page" id="page-targets">
+            <div class="section-header">
+                <div>
+                    <h2>Targets</h2>
+                    <div class="subtitle">Manage target scope allowlist required for scans</div>
+                </div>
+                <button class="btn btn-sm btn-secondary" onclick="loadTargets()">Refresh</button>
+            </div>
+            <div class="card" style="max-width:1000px">
+                <div class="card-header">🎯 Allowlist Rules</div>
+                <div class="card-body">
+                    <div class="scan-config-grid" style="grid-template-columns: 160px 1fr 120px; align-items:end">
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select class="form-select" id="target-rule-type">
+                                <option value="domain">Domain</option>
+                                <option value="ip">IP</option>
+                                <option value="cidr">CIDR</option>
+                                <option value="auto">Auto</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Pattern</label>
+                            <input type="text" class="form-input" id="target-rule-pattern" placeholder="e.g. scanme.nmap.org or 1.2.3.4 or 1.2.3.0/24">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" style="width:100%" onclick="createTargetRule()">Add</button>
+                        </div>
+                    </div>
+                    <div id="targets-list" style="margin-top:14px"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools Page -->
+        <div class="page" id="page-tools">
+            <div class="section-header">
+                <div>
+                    <h2>Kali Linux Tool Catalog</h2>
+                    <div class="subtitle">Integrated security tools with command templates</div>
+                </div>
+                <div style="display:flex;gap:8px">
+                    <input type="text" class="form-input" id="tool-search" placeholder="Search tools..." style="width:250px" oninput="searchToolsUI()">
+                </div>
+            </div>
+            <div id="tools-meta" style="color:var(--text-muted);font-size:12px;margin-bottom:10px"></div>
+            <div class="tools-grid" id="tools-grid"></div>
+        </div>
+
+    </main>
+</div>
+
+<!-- Toast container -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- Auth modal -->
+<div class="modal-backdrop" id="auth-modal" style="display:none">
+    <div class="modal">
+        <div class="modal-header">
+            <div>
+                <div class="modal-title">Sign in</div>
+                <div class="modal-subtitle" id="auth-modal-subtitle">Authentication is required.</div>
+            </div>
+            <button class="btn btn-sm btn-secondary" onclick="hideAuthModal()">✕</button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-tabs">
+                <button class="tab active" id="auth-tab-password" onclick="selectAuthTab('password')">Username</button>
+                <button class="tab" id="auth-tab-apikey" onclick="selectAuthTab('apikey')">API key</button>
+            </div>
+            <div id="auth-panel-password">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-input" id="auth-username" placeholder="admin">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-input" id="auth-password" placeholder="••••••••">
+                </div>
+            </div>
+            <div id="auth-panel-apikey" style="display:none">
+                <div class="form-group">
+                    <label>X-API-Key</label>
+                    <input type="text" class="form-input" id="auth-apikey" placeholder="paste API key">
+                    <div class="hint">Use an API key if you don't want a browser-stored token.</div>
+                </div>
+            </div>
+            <div class="auth-error" id="auth-error" style="display:none"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="hideAuthModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="submitAuthModal()">Sign in</button>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

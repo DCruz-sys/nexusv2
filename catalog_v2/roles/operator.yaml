@@ -1,0 +1,8 @@
+name: operator
+description: "Default operator role for local Nexus v2."
+model_preference: ""
+allowed_tool_categories:
+  - information_gathering
+skills:
+  - recon_basics
+

@@ -1,0 +1,8 @@
+name: recon_basics
+description: "Basic reconnaissance skill bundle."
+prompts:
+  - "Focus on safe, authorized recon within the allowed scope."
+tool_hints:
+  - "nmap"
+  - "whatweb"
+
