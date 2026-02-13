@@ -26,7 +26,7 @@ from app.database import (
     upsert_api_key,
 )
 from app.jobs.runner import job_runner
-from app.routes import auth, chat, crawler, frameworks, learning, memory, reports, scans, security, swarm, system, targets
+from app.routes import auth, chat, crawler, frameworks, learning, memory, pentest_v3, reports, scans, security, swarm, system, targets
 from app.ai.memory_manager import memory_manager
 from app.ai.nim_client import NIMClientError, nim_client
 from app.ai.nim_retrieval_client import nim_retrieval_client
@@ -73,6 +73,7 @@ async def lifespan(app: FastAPI):
     await refresh_tool_capabilities(tool_names=ESSENTIAL_TOOLS)
     await nim_client.start()
     await nim_retrieval_client.start()
+    await pentest_v3.startup_pentest_orchestrator()
     if JOB_RUNNER_MODE == "embedded":
         await memory_manager.start()
         await job_runner.start()
@@ -80,6 +81,7 @@ async def lifespan(app: FastAPI):
     if JOB_RUNNER_MODE == "embedded":
         await job_runner.stop()
         await memory_manager.stop()
+    await pentest_v3.shutdown_pentest_orchestrator()
     await nim_retrieval_client.stop()
     await nim_client.stop()
 
@@ -110,6 +112,8 @@ app.include_router(system.router, prefix="/api")
 app.include_router(auth.router, prefix="/api")
 app.include_router(security.router, prefix="/api")
 app.include_router(swarm.router)
+app.include_router(pentest_v3.router)
+app.include_router(pentest_v3.compat_router)
 
 
 @app.middleware("http")
@@ -193,6 +197,12 @@ async def health_check():
         "kali_only_mode": KALI_ONLY_ENFORCE,
         "kali_detected": is_kali_linux(),
     }
+
+
+@app.get("/health")
+async def compatibility_health_check(response: Response):
+    response.headers["X-API-Deprecated"] = "Use /api/health"
+    return await health_check()
 
 
 @app.get("/")
