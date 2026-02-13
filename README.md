@@ -11,7 +11,7 @@ Nexus V2 is a multi-agent penetration testing platform with NVIDIA NIM integrati
    - `python ../database/init_db.py`
    - The script first tries `asyncpg`; if unavailable, it automatically falls back to `docker compose exec postgres psql`.
 4. Start API:
-   - `uvicorn api.main:app --reload`
+   - `uvicorn app.main:app --reload`
 
 ## Kali/Python note
 
