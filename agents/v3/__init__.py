@@ -1,3 +1,3 @@
-from agents.v3.recon_agent import ReconAgent
+"""Deprecated v3 namespace; use agents.* modules directly."""
 
-__all__ = ["ReconAgent"]
+__all__: list[str] = []

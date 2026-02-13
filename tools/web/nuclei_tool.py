@@ -14,7 +14,7 @@ class NucleiTool(BaseTool):
             cmd += ["-t", templates]
         if additional_args:
             cmd += additional_args.split()
-        result = await self._run_command(cmd, timeout=900)
+        result = await self._run_command(cmd, timeout=900, target=target)
         return result.get("stdout", result.get("error", ""))
 
     def parse(self, output: str) -> Dict[str, Any]:

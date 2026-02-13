@@ -1,40 +1,21 @@
-# Nexus V2
+# NexusPenTest Unified Runtime
 
-Nexus V2 is a multi-agent penetration testing platform with NVIDIA NIM integration, semantic memory, and orchestrated workflows.
+## Architecture
+- Canonical runtime app: `app.main:app` only.
+- API routes are under `app/routes/*` with compatibility endpoints for `/api/v1/pentest/*` in `app/routes/pentest_v3.py`.
+- Agent orchestrator (`agents/orchestrator.py`) uses a unified V3 stack based on `core/self_learning_agent.py`.
+- Tool execution is registry-driven via `tools/registry.py` + `tools/command_tool.py`; high-value wrappers remain handwritten.
 
-## Quick start
+## Startup
+1. Install runtime deps: `pip install -r requirements.docker.txt`
+2. Start API: `uvicorn app.main:app --host 0.0.0.0 --port 8000`
+3. Health check: `curl http://127.0.0.1:8000/api/health`
 
-1. Configure `.env` from `.env.example` (includes a safe local default for `POSTGRES_PASSWORD`).
-2. Start stack:
-   - `cd docker && docker compose up -d`
-3. Initialize DB schema:
-   - `python ../database/init_db.py`
-   - The script first tries `asyncpg`; if unavailable, it automatically falls back to `docker compose exec postgres psql`.
-4. Start API:
-   - `uvicorn app.main:app --reload`
+## Supported Kali tools
+High-value native wrappers: `nmap`, `nuclei`, `ffuf`, `sqlmap`, `amass`, `subfinder`, `httpx`.
+All other Kali tools are loaded from registry metadata and executed by generic `CommandTool`.
 
-## Kali/Python note
-
-Kali enforces PEP 668 for system Python. Prefer a virtual environment for local tooling:
-
-- `python3 -m venv .venv`
-- `source .venv/bin/activate`
-- `pip install -r requirements.txt` (dev profile)
-
-
-## Dependency profiles
-
-Dependencies are split by profile:
-
-- `requirements-runtime.in` / `requirements-runtime.txt`: production runtime dependencies.
-- `requirements-dev.in` / `requirements-dev.txt`: runtime + development tooling.
-- `requirements-research.in` / `requirements-research.txt`: optional heavy frameworks and research tooling.
-- `requirements.docker.txt`: container install target (runtime-only, pinned lockfile).
-
-Heavy optional frameworks (for example `crewai` and `langchain*` integrations) are intentionally kept out of runtime and only included in the research profile.
-
-To refresh lockfiles:
-
-- `uv pip compile requirements-runtime.in -o requirements-runtime.txt`
-- `uv pip compile requirements-dev.in -o requirements-dev.txt`
-- `uv pip compile requirements-research.in -o requirements-research.txt`
+## Tool onboarding
+1. Add/update metadata in `kali_tools_dump.json` (or `app/frameworks/kali_tools.py` source catalog).
+2. Ensure fields exist: name, category, risk/risk_level, command_template, parser_type, scope_policy.
+3. Use `tools/factory.py:get_tool_wrapper()` to resolve either high-value wrappers or generic executor.
