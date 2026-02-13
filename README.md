@@ -12,8 +12,9 @@
 3. Health check: `curl http://127.0.0.1:8000/api/health`
 
 ## Supported Kali tools
-High-value native wrappers: `nmap`, `nuclei`, `ffuf`, `sqlmap`, `amass`, `subfinder`, `httpx`.
-All other Kali tools are loaded from registry metadata and executed by generic `CommandTool`.
+- High-value native wrappers: `nmap`, `nuclei`, `ffuf`, `sqlmap`, `amass`, `subfinder`, `httpx`.
+- Every other Kali tool in the registry is wrapped automatically through `CommandTool` via `tools.factory.get_all_tool_wrappers()`.
+- Source catalog reference: https://www.kali.org/tools/all-tools/
 
 ## Tool onboarding
 1. Add/update metadata in `kali_tools_dump.json` (or `app/frameworks/kali_tools.py` source catalog).
