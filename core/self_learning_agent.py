@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import uuid
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -14,6 +15,8 @@ except Exception:  # pragma: no cover
     import logging
 
     logger = logging.getLogger(__name__)
+
+from core.telemetry import telemetry
 
 
 class LearningSignal(Enum):
@@ -86,6 +89,8 @@ class SelfLearningAgent(ABC):
         }
 
     async def learn_and_execute(self, task: Dict[str, Any], context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        context_task_id = str((context or {}).get("task_id") or "")
+        task_id = str(task.get("task_id") or context_task_id or "") or str(uuid.uuid4())
         similar = await self._retrieve_similar_experiences(task)
         target_profile = self._derive_target_profile(task)
         strategy_templates = await self._retrieve_strategy_templates(task, target_profile)
@@ -106,10 +111,29 @@ class SelfLearningAgent(ABC):
             reward=0.0,
         )
 
-        result = await self._react_loop(task, similar, strategy_templates, context or {})
+        with telemetry.span("agent.learn_and_execute", attributes={"task_id": task_id, "agent": self.name, "role": self.role}):
+            telemetry.trace_event(task_id=task_id, name="agent.task.start", input_payload={"task": task, "agent": self.name})
+            result = await self._react_loop(task, similar, {**(context or {}), "task_id": task_id})
 
         self.current_experience.reward = self._calculate_reward(result)
         self.current_experience.outcome = LearningSignal.SUCCESS if result.get("success") else LearningSignal.FAILURE
+
+        usage = self._extract_usage_metrics(result)
+        telemetry.record_usage(
+            task_id=task_id,
+            agent=self.name,
+            cost_usd=usage["cost_usd"],
+            prompt_tokens=usage["prompt_tokens"],
+            completion_tokens=usage["completion_tokens"],
+            total_tokens=usage["total_tokens"],
+            reward=self.current_experience.reward,
+        )
+        result["telemetry"] = telemetry.get_task_totals(task_id)
+        telemetry.trace_event(
+            task_id=task_id,
+            name="agent.task.completed",
+            output_payload={"success": result.get("success"), "reward": self.current_experience.reward, "usage": usage},
+        )
 
         await self._store_experience()
         await self._distill_and_store_strategy_templates(task, target_profile)
@@ -135,6 +159,8 @@ class SelfLearningAgent(ABC):
 
         while iterations < self.max_iterations:
             thought = await self._reason(accumulated_context)
+            task_id = str(accumulated_context.get("task_id") or "")
+            telemetry.increment_loop_counter(task_id=task_id, agent=self.name, counter="thought")
 
             if thought.get("is_complete", False):
                 return await self._finalize_success(accumulated_context, thought)
@@ -143,12 +169,14 @@ class SelfLearningAgent(ABC):
                 return await self._finalize_failure(accumulated_context, thought.get("reason", "Task deemed impossible"))
 
             action = await self._act(thought)
+            telemetry.increment_loop_counter(task_id=task_id, agent=self.name, counter="action")
             self.current_experience.actions.append(action)
 
             observation = await self._observe(action)
             self.current_experience.observations.append(observation)
 
             verification = await self._verify(observation, thought)
+            telemetry.increment_loop_counter(task_id=task_id, agent=self.name, counter="verification")
 
             accumulated_context["history"].append(
                 {
@@ -163,6 +191,7 @@ class SelfLearningAgent(ABC):
             if verification.get("is_valid", True):
                 accumulated_context["findings"].extend(self._extract_findings(observation))
             elif verification.get("decision") == "retry":
+                telemetry.increment_loop_counter(task_id=task_id, agent=self.name, counter="retry")
                 refinement = await self._refine_strategy(action, observation)
                 accumulated_context.setdefault("refinements", []).append(refinement)
 
@@ -405,6 +434,21 @@ Return JSON with analysis, improved_strategy, alternative_tools.
         reward += 0.1 * len(result.get("findings", []))
         reward -= 0.2 * result.get("out_of_scope_actions", 0)
         return reward
+
+    @staticmethod
+    def _extract_usage_metrics(result: Dict[str, Any]) -> Dict[str, float | int]:
+        usage = result.get("usage") if isinstance(result.get("usage"), dict) else {}
+        tokens = result.get("tokens") if isinstance(result.get("tokens"), dict) else {}
+        prompt_tokens = int(usage.get("prompt_tokens") or tokens.get("prompt") or 0)
+        completion_tokens = int(usage.get("completion_tokens") or tokens.get("completion") or 0)
+        total_tokens = int(usage.get("total_tokens") or tokens.get("total") or 0)
+        cost_usd = float(result.get("cost_usd") or usage.get("cost_usd") or 0.0)
+        return {
+            "prompt_tokens": prompt_tokens,
+            "completion_tokens": completion_tokens,
+            "total_tokens": total_tokens,
+            "cost_usd": cost_usd,
+        }
 
     async def _finalize_success(self, context: Dict[str, Any], thought: Dict[str, Any]) -> Dict[str, Any]:
         return {

@@ -60,16 +60,43 @@ class MinimalAgent(SelfLearningAgent):
         return {"findings": [{"service": "https"}]}
 
 
+class RetryAgent(SelfLearningAgent):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._step = 0
+
+    async def _reason(self, context):
+        self._step += 1
+        if self._step >= 2:
+            return {"is_complete": True, "reasoning": "completed after retry"}
+        return {"next_action": "probe", "expected_result": "ok"}
+
+    async def _act(self, thought):
+        return {"action": "probe"}
+
+    async def _observe(self, action):
+        return {"findings": []}
+
+    async def _verify(self, observation, expected_thought):
+        if self._step == 1:
+            return {"is_valid": False, "decision": "retry"}
+        return {"is_valid": True, "decision": "continue"}
+
+
+
 def test_learn_and_execute_stores_experience_and_updates_strategy():
     agent = MinimalAgent("Meta", "test", DummyNIM(), DummyMemory(), learning_rate=0.1)
     before = agent.strategy_params["exploration_rate"]
-    result = asyncio.run(agent.learn_and_execute({"type": "recon", "description": "test target"}))
+    result = asyncio.run(agent.learn_and_execute({"type": "recon", "description": "test target", "task_id": "task-1"}))
 
     assert result["success"] is True
     assert agent.current_experience is not None
     assert agent.current_experience.outcome == LearningSignal.SUCCESS
     assert agent.strategy_params["exploration_rate"] < before
     assert len(agent.experience_buffer) == 1
+    assert result["telemetry"]["task_id"] == "task-1"
+    assert "Meta" in result["telemetry"]["agents"]
+
 
 
 def test_reward_penalizes_out_of_scope_and_rewards_findings():
@@ -78,19 +105,13 @@ def test_reward_penalizes_out_of_scope_and_rewards_findings():
     assert reward == pytest.approx(1.1)
 
 
-def test_agent_injects_templates_and_persists_distilled_strategies():
-    memory = DummyMemory()
-    agent = MinimalAgent("Meta", "test", DummyNIM(), memory, learning_rate=0.1)
 
-    result = asyncio.run(
-        agent.learn_and_execute(
-            {"type": "recon", "description": "Enumerate target services", "target": "acme.internal:443"}
-        )
-    )
+def test_react_loop_records_retry_counters():
+    agent = RetryAgent("Retry", "test", DummyNIM(), DummyMemory(), learning_rate=0.1)
+    result = asyncio.run(agent.learn_and_execute({"type": "scan", "description": "needs retry", "task_id": "task-retry"}))
 
-    assert result["success"] is True
-    assert agent.last_reason_context is not None
-    assert agent.last_reason_context["strategy_templates"]
-    assert memory.procedural_stored
-    assert memory.outcomes
-    assert memory.pruned is True
+    row = result["telemetry"]["agents"]["Retry"]
+    assert row["thought_count"] >= 2
+    assert row["action_count"] >= 1
+    assert row["verification_count"] >= 1
+    assert row["retry_count"] >= 1

@@ -1,0 +1,38 @@
+groups:
+  - name: nexus-agent-guardrails
+    rules:
+      - alert: NexusFailureLoopHigh
+        expr: sum(increase(nexus_agent_retry_total[10m])) by (agent) > 25
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High retry loop volume for {{ $labels.agent }}"
+          description: "Agent has exceeded 25 retries over a 10 minute window."
+
+      - alert: NexusFailureLoopCritical
+        expr: sum(increase(nexus_agent_retry_total[10m])) by (agent) > 60
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Critical failure loop detected for {{ $labels.agent }}"
+          description: "Agent retry loop exceeded 60 retries over 10 minutes."
+
+      - alert: NexusGuardrailBlocksElevated
+        expr: sum(increase(nexus_guardrail_blocks_total[15m])) > 10
+        for: 15m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Guardrail blocks elevated"
+          description: "More than 10 guardrail blocks seen in 15 minutes."
+
+      - alert: NexusGuardrailBlocksCritical
+        expr: sum(increase(nexus_guardrail_blocks_total[15m])) > 30
+        for: 10m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Guardrail blocks critical"
+          description: "More than 30 guardrail blocks seen in 15 minutes."
