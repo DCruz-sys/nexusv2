@@ -5,13 +5,20 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional
 
 import importlib
-import importlib.util
 
 import redis.asyncio as redis
 from loguru import logger
 
-asyncpg = importlib.import_module('asyncpg') if importlib.util.find_spec('asyncpg') else None
-_register_mod = importlib.import_module('pgvector.asyncpg') if importlib.util.find_spec('pgvector.asyncpg') else None
+
+def _optional_import(module_name: str):
+    try:
+        return importlib.import_module(module_name)
+    except ModuleNotFoundError:
+        return None
+
+
+asyncpg = _optional_import('asyncpg')
+_register_mod = _optional_import('pgvector.asyncpg')
 register_vector = getattr(_register_mod, 'register_vector', None)
 
 
