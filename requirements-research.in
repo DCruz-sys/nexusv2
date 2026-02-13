@@ -1,0 +1,13 @@
+-r requirements-runtime.in
+
+# Heavy optional frameworks and research tooling (non-runtime add-ons)
+langchain
+langchain-community
+langchain-openai
+crewai
+python-nmap
+typer
+rich
+loguru
+beautifulsoup4
+lxml
