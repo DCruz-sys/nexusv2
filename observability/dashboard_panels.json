@@ -1,0 +1,35 @@
+{
+  "title": "Nexus Agent Telemetry",
+  "description": "Panels for loop health, guardrail blocks, and task economics.",
+  "panels": [
+    {
+      "title": "Agent Retry Loop Rate",
+      "type": "timeseries",
+      "query": "sum(increase(nexus_agent_retry_total[5m])) by (agent, task_id)",
+      "thresholds": [
+        {"color": "yellow", "value": 25},
+        {"color": "red", "value": 60}
+      ]
+    },
+    {
+      "title": "Guardrail Blocks",
+      "type": "timeseries",
+      "query": "sum(increase(nexus_guardrail_blocks_total[5m])) by (reason)",
+      "thresholds": [
+        {"color": "yellow", "value": 10},
+        {"color": "red", "value": 30}
+      ]
+    },
+    {
+      "title": "Task Token Cost by Agent",
+      "type": "table",
+      "query": "sum(nexus_agent_task_cost_usd) by (task_id, agent)",
+      "secondaryQuery": "sum(nexus_agent_task_tokens_total) by (task_id, agent)"
+    },
+    {
+      "title": "Reward by Task",
+      "type": "bar-gauge",
+      "query": "sum(nexus_agent_task_reward) by (task_id, agent)"
+    }
+  ]
+}
